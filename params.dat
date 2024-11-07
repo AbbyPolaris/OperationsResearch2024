@@ -1,0 +1,56 @@
+param: Alloys:  number:=
+       A        1
+       B        2 ;
+
+param: Factories:  number    min_buy_fac   max_buy_fac:=
+       1           1         2000          5000
+       2           2         2500          6000
+       Main        3         0             .        ;
+
+param: Depots:   number      depots_min_to_receive  depots_Max_to_receive :=
+       Tehran    1           20                     65
+       Isfahan   2 ;         30                     70   ;
+
+param: Markets: number:=
+       Mashhad  1
+       Kerman   2
+       Ahvaz    3
+       Tabriz   4 ;
+
+param: Metals:       A_comb_min   A_comb_max    B_comb_min   B_comb_max :=
+       Iron          0            0.25          0.45         0.70
+       Aluminum      0.55         375           0            0.70
+       Zinc          0            0.8           0            .
+       Copper        0            .             0.35         .  ;
+
+param: Ore:                  Max_ore      Ore_cost :=
+       1                     560          45                 
+       2                     1000         65
+       3                     440          70  ;  
+
+param Ore_combination:  
+                        Iron    Aluminum    Zinc    Copper :=
+       1                .05     .35         .25     .30
+       2                .20     .30         .15     .25
+       3                .05     .25         .65     .05 ;
+
+param Container_price:
+                     Tehran        Isfahan :=
+       Main          200           230
+       1             180           210
+       2             240           220    ;
+
+param Container_min_to_be_sent:
+                     Tehran        Isfahan :=
+       Main          5             5
+       1             10            10
+       2             5             5      ;
+
+
+param Container_Max_to_be_sent:
+                     Tehran        Isfahan :=
+       Main          20            20
+       1             30            30
+       2             25            15      ;
+
+
