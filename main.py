@@ -11,7 +11,7 @@ model.Depots = Set()
 model.Markets = Set()
 
 container_cap = constants.container_cap
-
+#parameters
 model.A_comb_min = Param(model.Metals, within=NonNegativeReals, default=0.0)
 model.A_comb_max = Param(model.Metals, within=NonNegativeReals, default=infinity)
 model.B_comb_min = Param(model.Metals, within=NonNegativeReals, default=0.0)
@@ -23,20 +23,26 @@ model.Max_ore = Param(model.Ore,within=NonNegativeReals)
 model.Ore_cost = Param(model.Ore,within=NonNegativeReals)
 model.Ore_combination = Param(model.Ore, model.Metals, within=NonNegativeReals)
 
-model.Container_min_to_be_sent = Param(model.Factories, model.Depots, within=NonNegativeIntegers)
-model.Container_Max_to_be_sent = Param(model.Factories, model.Depots, within=NonNegativeIntegers)
+model.Container_min_to_be_sent_depot = Param(model.Factories, model.Depots, within=NonNegativeIntegers)
+model.Container_Max_to_be_sent_depot = Param(model.Factories, model.Depots, within=NonNegativeIntegers)
 model.depots_min_to_receive = Param(model.Depots, within=NonNegativeIntegers)
 model.depots_Max_to_receive = Param(model.Depots, within=NonNegativeIntegers)
+model.Container_min_to_be_sent_market = Param(model.Depots, model.Markets, within= NonNegativeIntegers)
+model.Container_Max_to_be_sent_market = Param(model.Depots, model.Markets, within= NonNegativeIntegers)
 
+#variables
 model.Z = Var(model.Ore,model.Alloys, within=NonNegativeReals) # ?
 model.F = Var(model.Ore,model.Alloys, within=NonNegativeReals) # ?
 model.A = Var(model.Ore,model.Alloys, within=NonNegativeReals) # ?
 model.C = Var(model.Ore,model.Alloys, within=NonNegativeReals) # ?
 model.U = Var(model.Alloys,within=NonNegativeReals)
-model.T = Var(model.Alloys,model.Factories,model.Depots)
+model.t = Var(model.Alloys,model.Factories,model.Depots)
 model.Extracted_ore = Var(model.Ore,within=NonNegativeReals) # Si in paper
-model.h = Var(model.Factories,within=Boolean)
+model.h = Var(model.Factories,within= Boolean)
 model.B = Var(model.Factories, model.Depots, within=NonNegativeIntegers)
+model.g = Var(model.Alloys, model.Depots, model.Markets, within=NonNegativeReals)
+model.G = Var(model.Depots, model.Markets, within= NonNegativeIntegers)
+model.l = Var(model.Markets, within= Boolean)
 
 #rule for maximum extraction of ore.
 def Max_extracted_ore_rule(model,i):
@@ -106,24 +112,24 @@ model.Metal_in_alloy_limit_B_F = Constraint(rule=Metal_in_alloy_rule_B_F)
 
 #exported alloy from main fac should be less than (or equal to)  
 def Export_from_main_fac_rule(model,i):
-    return model.U[i] >= sum(model.T[i,'Main',k] for k in model.Depots)
+    return model.U[i] >= sum(model.t[i,'Main',k] for k in model.Depots)
 model.Export_from_main_fac_limit = Constraint(model.Alloys,rule=Export_from_main_fac_rule)
 
 #limits of buying from factories
 def buy_from_fac_rule(model,i):
-    return inequality(model.min_buy_fac[i]*model.h[i] ,sum(sum(model.T[i,j,k] for k in model.Depots)\
+    return inequality(model.min_buy_fac[i]*model.h[i] ,sum(sum(model.t[i,j,k] for k in model.Depots)\
                                                 for j in model.Alloys),model.max_buy_fac[i]*model.h[i])
 model.buy_from_fac_limit= Constraint(model.Factories,rule=buy_from_fac_rule)
 
-#limit for Alloys in one container.
+#limit for Alloys in one container from fac to depot.
 def container_rule(model,i,j):
-    return sum(model.T[a,i,j] for a in model.Alloys) <= model.B[i,j]*container_cap
+    return sum(model.t[a,i,j] for a in model.Alloys) <= model.B[i,j]*container_cap
 model.container_limit = Constraint(model.Factories, model.Depots, rule=container_rule)
 
 #limit for transporting from fac to depots No1.#TODO correction
 def transportation_rule(model,i,j):
-    return inequality(model.Container_min_to_be_sent[i,j]*model.h[i],model.B[i,j],\
-                      model.Container_Max_to_be_sent[i,j]*model.h[i])
+    return inequality(model.Container_min_to_be_sent_depot[i,j]*model.h[i],model.B[i,j],\
+                      model.Container_Max_to_be_sent_depot[i,j]*model.h[i])
 model.transportation_limit = Constraint(model.Factories,model.Depots, rule= transportation_rule)
 
 #limit for transporting from fac to depots No2.
@@ -131,6 +137,22 @@ def transportation_rule2(model,j):
     return inequality(model.depots_min_to_receive[j],sum(model.B[i,j] for i in model.Factories),\
                       model.depots_Max_to_receive[j])
 model.transportation_limit2 = Constraint(model.Depots,rule= transportation_rule2)
+
+#limit for transporting from depots to markets.
+def transp_from_dep_to_marker_rule(model,i,k):
+    return sum(model.t[i,j,k] for j in model.Factories) >= sum(model.g[i,k,l] for l in model.Markets)
+model.transp_from_dep_to_marker_limit = Constraint(model.Alloys,model.Depots, rule= transp_from_dep_to_marker_rule)
+
+#limits for Alloys in containers transporting from depots to markets
+def container_rule2(model,i,j):
+    return sum(model.g[l,i,j] for l in model.Alloys) <= model.G[i,j]*container_cap
+model.container_limit2 = Constraint(model.Depots, model.Markets, rule=container_rule2)
+
+#limit for containers to be sent to markets.
+def market_sell_rule(model,i,j):
+    return inequality(model.Container_min_to_be_sent_market[i,j]*model.l[j],\
+                      model.G[i,j],model.Container_min_to_be_sent_market[i,j]*model.l[j])
+model.market_sell_limit = Constraint(model.Markets, rule= market_sell_rule)
 
 
 
