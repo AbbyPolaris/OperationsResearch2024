@@ -1,21 +1,23 @@
-param: Alloys:  number:=
-       A        1
-       B        2 ;
+set Alloys:=
+       A        
+       B;
 
-param: Factories:  number    min_buy_fac   max_buy_fac:=
-       1           1         2000          5000
-       2           2         2500          6000
-       Main        3         0             .        ;
+param: Factories:         min_buy_fac   max_buy_fac:=
+       1                  2000          5000
+       2                  2500          6000
+       Main               0             .        ;
 
-param: Depots:   number      depots_min_to_receive  depots_Max_to_receive :=
-       Tehran    1           20                     65
-       Isfahan   2 ;         30                     70   ;
+param: Depots:         depots_min_to_receive  depots_Max_to_receive :=
+       Tehran          20                     65
+       Isfahan         30                     70   ;
 
-param: Markets: number:=
-       Mashhad  1
-       Kerman   2
-       Ahvaz    3
-       Tabriz   4 ;
+param container_cap:= 100;
+
+set Markets:=
+       Mashhad 
+       Kerman 
+       Ahvaz    
+       Tabriz  ;
 
 param: Metals:       A_comb_min   A_comb_max    B_comb_min   B_comb_max :=
        Iron          0            0.25          0.45         0.70
@@ -63,4 +65,10 @@ param Container_Max_to_be_sent_market:
        Tehran        7            12        18      15
        Isfahan       6            14        20      20  ;
 
+param Max_market_demand:
+                     A      B :=
+       Mashhad       600    400
+       Kerman        800    1200
+       Ahvaz         1500   1500
+       Tabriz        1400   1100   ;
 
