@@ -12,23 +12,26 @@ model.Markets = Set()
 #parameters
 model.min_buy_fac = Param(model.Factories,within=NonNegativeReals, default=0.0)
 model.max_buy_fac = Param(model.Factories,within=NonNegativeReals, default=infinity)
+model.contract_cost = Param(model.Factories,within= NonNegativeReals)
 model.A_comb_min = Param(model.Metals, within=NonNegativeReals, default=0.0)
 model.A_comb_max = Param(model.Metals, within=NonNegativeReals, default=infinity)
 model.B_comb_min = Param(model.Metals, within=NonNegativeReals, default=0.0)
 model.B_comb_max = Param(model.Metals, within=NonNegativeReals, default=infinity)
-
+model.price_of_alloy_fac = Param(model.Factories, model.Alloys, within=NonNegativeReals)
 model.Max_ore = Param(model.Ore,within=NonNegativeReals)
 model.Ore_cost = Param(model.Ore,within=NonNegativeReals)
 model.Ore_combination = Param(model.Ore, model.Metals, within=NonNegativeReals)
-
 model.container_cap = Param(within= NonNegativeIntegers)
 model.Container_min_to_be_sent_depot = Param(model.Factories, model.Depots, within=NonNegativeIntegers)
 model.Container_Max_to_be_sent_depot = Param(model.Factories, model.Depots, within=NonNegativeIntegers)
+model.Container_cost_to_be_sent_depot = Param(model.Factories, model.Depots , within=NonNegativeReals)
 model.depots_min_to_receive = Param(model.Depots, within=NonNegativeIntegers)
 model.depots_Max_to_receive = Param(model.Depots, within=NonNegativeIntegers)
 model.Container_min_to_be_sent_market = Param(model.Depots, model.Markets, within= NonNegativeIntegers)
 model.Container_Max_to_be_sent_market = Param(model.Depots, model.Markets, within= NonNegativeIntegers)
+model.Container_cost_to_be_sent_market = Param(model.Depots ,model.Markets, within= NonNegativeReals)
 model.Max_market_demand = Param(model.Markets,model.Alloys, within= NonNegativeReals)
+model.Market_price = Param(model.Markets , model.Alloys , within= NonNegativeReals)
 
 #variables
 model.Z = Var(model.Ore,model.Alloys, within=NonNegativeReals)
@@ -155,17 +158,17 @@ def Export_from_main_fac_rule(model,i):
     return model.U[i] >= sum(model.t[i,'Main',k] for k in model.Depots)
 model.Export_from_main_fac_limit = Constraint(model.Alloys,rule=Export_from_main_fac_rule)
 
-#limits of buying from factories#TODO im not sure if i did it right.
+#limits of buying from factories.
 def buy_from_fac_rule_f(model,i):
     value = sum(sum(model.t[j,i,k] for k in model.Depots)\
                                                 for j in model.Alloys)
     return model.min_buy_fac[i]*model.h[i]<=value
-model.buy_from_fac_limit_f= Constraint(model.Factories,rule=buy_from_fac_rule_f)
+model.buy_from_fac_limit_f= Constraint([1,2],rule=buy_from_fac_rule_f)
 def buy_from_fac_rule_t(model,i):
     value = sum(sum(model.t[j,i,k] for k in model.Depots)\
                                                 for j in model.Alloys)
     return value<=model.max_buy_fac[i]*model.h[i]
-model.buy_from_fac_limit_t= Constraint(model.Factories,rule=buy_from_fac_rule_t)
+model.buy_from_fac_limit_t= Constraint([1,2],rule=buy_from_fac_rule_t)
 
 #limit for Alloys in one container from fac to depot.
 def container_rule(model,i,j):
@@ -210,8 +213,3 @@ def max_market_demand_rule(model,k,i):
     return sum(model.g[i,j,k] for j in model.Depots) <= model.Max_market_demand[k,i]
 model.max_market_demand_limit = Constraint(model.Markets, model.Alloys, rule= max_market_demand_rule)
 
-def cost_rule(model):
-    return model.test_var
-model.cost = Objective(rule=cost_rule,sense=minimize)
-
-   
