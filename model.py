@@ -213,3 +213,12 @@ def max_market_demand_rule(model,k,i):
     return sum(model.g[i,j,k] for j in model.Depots) <= model.Max_market_demand[k,i]
 model.max_market_demand_limit = Constraint(model.Markets, model.Alloys, rule= max_market_demand_rule)
 
+def cost_rule(model):
+    return sum(sum(model.Market_price[m,j]*sum(model.g[j,k,m] for k in model.Depots) for j in model.Alloys) for m in model.Markets)-\
+           sum(model.Extracted_ore[i]*model.Ore_cost[i] for i in model.Ore)-\
+           sum(sum(model.price_of_alloy_fac[u,j]*sum(model.t[j,u,k] for k in model.Depots) for j in model.Alloys) for u in model.Factories)-\
+           sum(model.h[u]*model.contract_cost[u] for u in model.Factories)-\
+           sum(sum(model.Container_cost_to_be_sent_depot[i,j]*model.B[i,j] for j in model.Depots) for i in model.Factories)-\
+           sum(sum(model.G[i,j]*model.Container_cost_to_be_sent_market[i,j] for j in model.Markets) for i in model.Depots)
+
+model.cost = Objective(rule=cost_rule, sense=maximize)
