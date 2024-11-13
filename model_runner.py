@@ -5,9 +5,9 @@ from model import model
 
 if __name__ == "__main__":
     data = DataPortal()
-    data.load(filename='/home/abby/OR_project/params.dat')
+    data.load(filename='params.dat')
     instance = model.create_instance(data=data)
-    #instance.pprint()
     solver = SolverFactory('glpk')
     results = solver.solve(instance)
     instance.display()
+    results.write(filename='results.yaml',format='yaml')
