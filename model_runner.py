@@ -1,3 +1,5 @@
+#for now, to get the better result file, you can execute the command below in your terminal:
+# pyomo solve --solver=glpk model_runner.py params.dat
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
 from model import model
