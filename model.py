@@ -1,6 +1,6 @@
 from pyomo.environ import *
 infinity = float('inf')
-model = AbstractModel()
+model = AbstractModel(name='OR1')
 
 model.Ore = Set()
 model.Alloys = Set()
@@ -10,16 +10,22 @@ model.Depots = Set()
 model.Markets = Set()
 
 #parameters
+M = 999999999
+epsilon = 1e-9
+discount_percentage = 0.05
+
+#model parameters
 model.min_buy_fac = Param(model.Factories,within=NonNegativeReals, default=0.0)
 model.max_buy_fac = Param(model.Factories,within=NonNegativeReals, default=infinity)
+model.discount_margin = Param(model.Factories, within=NonNegativeReals, default=infinity)
 model.contract_cost = Param(model.Factories,within= NonNegativeReals)
 model.A_comb_min = Param(model.Metals, within=NonNegativeReals, default=0.0)
 model.A_comb_max = Param(model.Metals, within=NonNegativeReals, default=infinity)
 model.B_comb_min = Param(model.Metals, within=NonNegativeReals, default=0.0)
 model.B_comb_max = Param(model.Metals, within=NonNegativeReals, default=infinity)
-model.price_of_alloy_fac = Param(model.Factories, model.Alloys, within=NonNegativeReals)
-model.Max_ore = Param(model.Ore,within=NonNegativeReals)
-model.Ore_cost = Param(model.Ore,within=NonNegativeReals)
+model.price_of_alloy_fac = Param(model.Factories, model.Alloys, within=NonNegativeReals,mutable=True)
+model.Max_ore = Param(model.Ore,within=NonNegativeReals, mutable = True)
+model.Ore_cost = Param(model.Ore,within=NonNegativeReals, mutable=True)
 model.Ore_combination = Param(model.Ore, model.Metals, within=NonNegativeReals)
 model.container_cap = Param(within= NonNegativeIntegers)
 model.Container_min_to_be_sent_depot = Param(model.Factories, model.Depots, within=NonNegativeIntegers)
@@ -40,12 +46,14 @@ model.A = Var(model.Ore,model.Alloys, within=NonNegativeReals)
 model.C = Var(model.Ore,model.Alloys, within=NonNegativeReals) 
 model.U = Var(model.Alloys,within=NonNegativeReals)
 model.t = Var(model.Alloys,model.Factories,model.Depots, within=NonNegativeReals)
-model.Extracted_ore = Var(model.Ore,within=NonNegativeReals) # S in report
+model.Extracted_ore = Var(model.Ore,within=NonNegativeReals) # defined as S in the report
 model.h = Var(model.Factories,within= Binary)
 model.B = Var(model.Factories, model.Depots, within=NonNegativeIntegers)
 model.g = Var(model.Alloys, model.Depots, model.Markets, within=NonNegativeReals)
 model.G = Var(model.Depots, model.Markets, within= NonNegativeIntegers)
-model.l = Var(model.Markets, within= Binary)
+model.l = Var(model.Depots, model.Markets, within= Binary)
+model.d = Var([1,2], within= Binary) #added for -b
+model.R = Var(model.Alloys,[1,2], within= NonNegativeReals, initialize=0) #added for -b
 
 #rule for maximum extraction of ore.
 def Max_extracted_ore_rule(model,i):
@@ -54,7 +62,7 @@ model.Max_extracted_ore_limit = Constraint(model.Ore,rule=Max_extracted_ore_rule
 
 #alloy weight is sum of metals weights in it.
 def Alloy_sum_rule(model,j):
-    return model.U[j] == sum(model.Z[i,j] for i in model.Ore)+\
+    return model.U[j] <= sum(model.Z[i,j] for i in model.Ore)+\
                          sum(model.C[i,j] for i in model.Ore)+\
                          sum(model.A[i,j] for i in model.Ore)+\
                          sum(model.F[i,j] for i in model.Ore)
@@ -186,23 +194,26 @@ def transportation_rule2(model,j):
                       model.depots_Max_to_receive[j])
 model.transportation_limit2 = Constraint(model.Depots,rule= transportation_rule2)
 
+
 #limit for transporting from depots to markets.
-def transp_from_dep_to_marker_rule(model,i,k):
+def transp_from_dep_to_market_rule(model,i,k):
     return sum(model.t[i,j,k] for j in model.Factories) >= sum(model.g[i,k,l] for l in model.Markets)
-model.transp_from_dep_to_marker_limit = Constraint(model.Alloys,model.Depots,\
-                                                rule= transp_from_dep_to_marker_rule)
+model.transp_from_dep_to_market_limit = Constraint(model.Alloys,model.Depots,\
+                                                rule= transp_from_dep_to_market_rule)
 
 #limits for Alloys in containers transporting from depots to markets
+
+##TODO empty containers can be sent!!!
 def container_rule2(model,i,j):
     return sum(model.g[l,i,j] for l in model.Alloys) <= model.G[i,j]*model.container_cap
 model.container_limit2 = Constraint(model.Depots, model.Markets, rule=container_rule2)
 
 #limit for containers to be sent to markets.
 def market_sell_rule_f(model,i,j):
-    return model.Container_min_to_be_sent_market[i,j]*model.l[j]<=model.G[i,j]
+    return model.Container_min_to_be_sent_market[i,j]*model.l[i,j]<=model.G[i,j]
 model.market_sell_limit_f = Constraint(model.Depots,model.Markets, rule= market_sell_rule_f)
 def market_sell_rule_t(model,i,j):
-    return model.G[i,j]<=model.Container_min_to_be_sent_market[i,j]*model.l[j]
+    return model.G[i,j]<=model.Container_min_to_be_sent_market[i,j]*model.l[i,j]
 model.market_sell_limit_t = Constraint(model.Depots,model.Markets, rule= market_sell_rule_t)
 
 #maximum market demands.
@@ -210,7 +221,7 @@ def max_market_demand_rule(model,k,i):
     return sum(model.g[i,j,k] for j in model.Depots) <= model.Max_market_demand[k,i]
 model.max_market_demand_limit = Constraint(model.Markets, model.Alloys, rule= max_market_demand_rule)
 
-def revenue_rule(model):
+def revenue_rule_no_discount(model):
     return sum(sum(model.Market_price[m,j]*sum(model.g[j,k,m] for k in model.Depots) for j in model.Alloys) for m in model.Markets)-\
            sum(model.Extracted_ore[i]*model.Ore_cost[i] for i in model.Ore)-\
            sum(sum(model.price_of_alloy_fac[u,j]*sum(model.t[j,u,k] for k in model.Depots) for j in model.Alloys) for u in model.Factories)-\
@@ -218,4 +229,37 @@ def revenue_rule(model):
            sum(sum(model.Container_cost_to_be_sent_depot[i,j]*model.B[i,j] for j in model.Depots) for i in model.Factories)-\
            sum(sum(model.G[i,j]*model.Container_cost_to_be_sent_market[i,j] for j in model.Markets) for i in model.Depots)
 
-model.revenue = Objective(rule=revenue_rule, sense=maximize)
+#added for -b
+model.revenue = Objective(rule=revenue_rule_no_discount, sense=maximize)
+
+def discount_rule_1(model,u):
+    return sum(sum(model.t[j,u,k] for j in model.Alloys) for k in model.Depots)+epsilon <= model.d[u]*model.discount_margin[u] +\
+                                                                                  model.discount_margin[u]
+
+def discount_rule_2(model,u):
+    return sum(sum(model.t[j,u,k] for j in model.Alloys) for k in model.Depots) >= model.discount_margin[u]*model.d[u]
+
+def discount_rule_3(model,u,j):
+    return sum(model.t[j,u,k] for k in model.Depots) >= model.R[j,u]
+
+def discount_rule_4(model,u):
+    return sum(model.R[j,u] for j in model.Alloys) <= model.d[u]*M
+
+
+def revenue_rule_discount_added(model):
+    return sum(sum(model.Market_price[m,j]*sum(model.g[j,k,m] for k in model.Depots) for j in model.Alloys) for m in model.Markets)-\
+           sum(model.Extracted_ore[i]*model.Ore_cost[i] for i in model.Ore)-\
+           sum(sum(model.price_of_alloy_fac[u,j]*sum(model.t[j,u,k] for k in model.Depots) for j in model.Alloys) for u in model.Factories)-\
+           sum(model.h[u]*model.contract_cost[u] for u in model.Factories)-\
+           sum(sum(model.Container_cost_to_be_sent_depot[i,j]*model.B[i,j] for j in model.Depots) for i in model.Factories)-\
+           sum(sum(model.G[i,j]*model.Container_cost_to_be_sent_market[i,j] for j in model.Markets) for i in model.Depots)+\
+           sum(sum(discount_percentage*model.R[j,u]*model.price_of_alloy_fac[u,j] for u in [1,2]) for j in model.Alloys)
+
+def apply_discount_rule():
+    model.discount_limit_1 = Constraint([1,2],rule=discount_rule_1)
+    model.discount_limit_2 = Constraint([1,2],rule=discount_rule_2)
+    model.discount_limit_3 = Constraint([1,2],model.Alloys,rule=discount_rule_3)
+    model.discount_limit_4 = Constraint([1,2],rule=discount_rule_4)
+    model.revenue = Objective(rule=revenue_rule_discount_added, sense=maximize)
+
+model.apply_discount = apply_discount_rule
