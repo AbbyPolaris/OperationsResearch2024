@@ -2,10 +2,10 @@ set Alloys:=
        A        
        B;
 
-param: Factories:         min_buy_fac   max_buy_fac     contract_cost:=
-       1                  2000          5000            120
-       2                  2500          6000            90
-       Main               0             .               0   ;
+param: Factories:         min_buy_fac  discount_margin  max_buy_fac     contract_cost:=
+       1                  2000         2500             5000            120
+       2                  2500         3000             6000            90
+       Main               0            .                .               0   ;
 
 param: Depots:         depots_min_to_receive  depots_Max_to_receive :=
        Tehran          20                     65
@@ -28,7 +28,7 @@ param: Metals:       A_comb_min   A_comb_max    B_comb_min   B_comb_max :=
 param: Ore:                  Max_ore      Ore_cost :=
        1                     560          45                 
        2                     1000         65
-       3                     440          70  ;  
+       3                     1440          70  ;  
 
 param Ore_combination:  
                         Iron    Aluminum    Zinc    Copper :=
@@ -36,11 +36,6 @@ param Ore_combination:
        2                .20     .30         .15     .25
        3                .05     .25         .65     .05 ;
 
-param Container_price:
-                     Tehran        Isfahan :=
-       Main          200           230
-       1             180           210
-       2             240           220    ;
 
 param Container_min_to_be_sent_depot:
                      Tehran        Isfahan :=
