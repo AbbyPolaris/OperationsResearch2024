@@ -28,28 +28,21 @@ if __name__ == "__main__":
     if not problem_number in ['-a','-b','-c','-d','-e','-f','-g','-h','-i']:
         sys.exit(0)
 
-
     print(f"results for problem: {problem_number}")
     data = DataPortal()
-    data.load(filename='params.dat')
-    
-    solver = SolverFactory('gurobi')
-    solver.options['Sensitivity'] = 1  # Enable sensitivity analysis
-    if problem_number == '-b':
-        model.apply_discount() 
-    
-
-    if problem_number == '-g':
-        runner_g.g()
-
+    data.load(filename='params.dat')    
     instance = model.create_instance(data=data) 
-
-    instance.dual = Suffix(direction=Suffix.IMPORT)
-    instance.rc = Suffix(direction=Suffix.IMPORT)   
-    results = solver.solve(instance, tee=True)
-    print(results)
     instance.write('model.lp', io_options={'symbolic_solver_labels': True})
+    solver = SolverFactory('glpk')
+    
+    if problem_number == '-g':
+        pass#runner_g.g(instance=instance)
 
+    if problem_number == '-b':
+        model.apply_discount()  
+    if problem_number in ['-a','-b']:
+        results = solver.solve(instance)
+        print(results)
     instance.display()
     file_name = 'results.yaml'
     try:

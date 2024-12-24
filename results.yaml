@@ -1,0 +1,33 @@
+# ==========================================================
+# = Solver Results                                         =
+# ==========================================================
+# ----------------------------------------------------------
+#   Problem Information
+# ----------------------------------------------------------
+Problem: 
+- Name: unknown
+  Lower bound: 1593740.3030303
+  Upper bound: 1593740.3030303
+  Number of objectives: 1
+  Number of constraints: 97
+  Number of variables: 82
+  Number of nonzeros: 304
+  Sense: maximize
+# ----------------------------------------------------------
+#   Solver Information
+# ----------------------------------------------------------
+Solver: 
+- Status: ok
+  Termination condition: optimal
+  Statistics: 
+    Branch and bound: 
+      Number of bounded subproblems: 39
+      Number of created subproblems: 39
+  Error rc: 0
+  Time: 0.008675098419189453
+# ----------------------------------------------------------
+#   Solution Information
+# ----------------------------------------------------------
+Solution: 
+- number of solutions: 0
+  number of solutions displayed: 0

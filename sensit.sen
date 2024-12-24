@@ -1,836 +1,902 @@
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page   1
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
      1 c_u_Max_extracted_ore_limit(1)_
-                    NU     560.00000        .               -Inf      481.07865    -248.10077   1.42006e+06 c_u_Metal_sum_limit_Z(2)_
-                                         248.10077     560.00000      661.27660          +Inf   1.46477e+06 C(2_B)
+                    NU     560.00000        .               -Inf      471.42857    -209.57253   1.64225e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                                         209.57253     560.00000      628.57143          +Inf   1.67518e+06 g(B_Isfahan_Mashhad)
 
      2 c_u_Max_extracted_ore_limit(2)_
-                    NU    1000.00000        .               -Inf      830.00000    -367.75507   1.37713e+06 C(2_B)
-                                         367.75507    1000.00000     1144.08163          +Inf   1.49263e+06 c_u_transportation_limit_t(1_Tehran)_
+                    NU    1000.00000        .               -Inf      896.66667    -325.65010   1.62716e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                                         325.65010    1000.00000     1077.74879          +Inf   1.68613e+06 c_u_discount_limit_4(1)_
 
      3 c_u_Max_extracted_ore_limit(3)_
-                    NU     440.00000        .               -Inf      161.41593    -155.86004   1.39622e+06 c_u_Metal_sum_limit_Z(3)_
-                                         155.86004     440.00000      512.86307          +Inf     1.451e+06 c_u_Metal_sum_limit_Z(2)_
+                    NU    1440.00000        .               -Inf     1316.00000    -127.51434     1.645e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                                         127.51434    1440.00000     1536.00000          +Inf   1.67305e+06 g(B_Isfahan_Mashhad)
 
      4 c_u_Alloy_sum_limit(A)_
-                    NU        .             .               -Inf      -17.73737        .        1.43964e+06 c_u_Metal_sum_limit_Z(2)_
-                                            .             .           132.26263          +Inf   1.43964e+06 Z(2_A)
+                    NU        .             .               -Inf     -576.96970        .        1.66081e+06 c_u_Metal_sum_limit_Z(3)_
+                                            .             .           225.69697          +Inf   1.66081e+06 Z(3_A)
 
      5 c_u_Alloy_sum_limit(B)_
-                    NU        .             .               -Inf     -174.88889        .        1.43964e+06 c_u_Metal_sum_limit_Z(3)_
-                                            .             .           111.11111          +Inf   1.43964e+06 c_u_Metal_in_alloy_limit_B_Z_f_
+                    NU        .             .               -Inf     -533.33333        .        1.66081e+06 c_u_Metal_in_alloy_limit_B_Z_t_
+                                            .             .           133.33333          +Inf   1.66081e+06 c_u_Metal_in_alloy_limit_B_Z_f_
 
      6 c_u_Metal_sum_limit_Z(1)_
-                    NU        .             .               -Inf      -17.73737        .        1.43964e+06 c_u_Metal_sum_limit_Z(2)_
-                                            .             .           132.26263          +Inf   1.43964e+06 Z(2_A)
+                    NU        .             .               -Inf     -140.00000        .        1.66081e+06 Z(1_A)
+                                            .             .           225.69697          +Inf   1.66081e+06 Z(3_A)
 
      7 c_u_Metal_sum_limit_Z(2)_
-                    BS     -17.73737      17.73737          -Inf     -150.00000        .        1.43964e+06 Z(3_A)
-                                            .             .           122.26263        .        1.43964e+06 c_u_Metal_sum_limit_Z(1)_
+                    NU        .             .               -Inf     -150.00000        .        1.66081e+06 Z(2_A)
+                                            .             .           225.69697          +Inf   1.66081e+06 Z(3_A)
 
      8 c_u_Metal_sum_limit_Z(3)_
-                    BS    -174.88889     174.88889          -Inf     -192.62626        .        1.43964e+06 Z(1_B)
-                                            .             .           269.55556        .        1.43964e+06 c_u_Alloy_sum_limit(B)_
+                    BS    -576.96970     576.96970          -Inf     -648.96970        .        1.66081e+06 C(3_A)
+                                            .             .          -436.96970        .        1.66081e+06 c_u_Metal_sum_limit_Z(1)_
 
      9 c_u_Metal_sum_limit_F(1)_
-                    NU        .             .               -Inf      -28.00000   -1155.16444    1.4073e+06 F(1_B)
-                                        1155.16444        .            22.80519          +Inf   1.46599e+06 c_u_Metal_sum_limit_Z(2)_
+                    NU        .             .               -Inf      -28.00000   -1097.37778   1.63009e+06 F(1_B)
+                                        1097.37778        .            21.42857          +Inf   1.68433e+06 C(2_A)
 
     10 c_u_Metal_sum_limit_F(2)_
-                    NU        .             .               -Inf      -34.00000   -1155.16444   1.40037e+06 C(2_B)
-                                        1155.16444        .            22.80519          +Inf   1.46599e+06 c_u_Metal_sum_limit_Z(2)_
+                    NU        .             .               -Inf     -139.63636   -1097.37778   1.50758e+06 t(B_Main_Isfahan)
+                                        1097.37778        .            21.42857          +Inf   1.68433e+06 C(2_A)
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page   2
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
     11 c_u_Metal_sum_limit_F(3)_
-                    NU        .             .               -Inf      -22.00000   -1155.16444   1.41423e+06 F(3_B)
-                                        1155.16444        .            22.80519          +Inf   1.46599e+06 c_u_Metal_sum_limit_Z(2)_
+                    NU        .             .               -Inf      -72.00000   -1097.37778    1.5818e+06 F(3_B)
+                                        1097.37778        .            21.42857          +Inf   1.68433e+06 C(2_A)
 
     12 c_u_Metal_sum_limit_C(1)_
-                    NU        .             .               -Inf      -17.73737        .        1.43964e+06 c_u_Metal_sum_limit_Z(2)_
-                                            .             .            26.44444          +Inf   1.43964e+06 C(2_B)
+                    NU        .             .               -Inf     -168.00000        .        1.66081e+06 C(1_A)
+                                            .             .           225.69697          +Inf   1.66081e+06 Z(3_A)
 
     13 c_u_Metal_sum_limit_C(2)_
-                    NU        .             .               -Inf      -17.73737        .        1.43964e+06 c_u_Metal_sum_limit_Z(2)_
-                                            .             .           132.26263          +Inf   1.43964e+06 Z(2_A)
+                    NU        .             .               -Inf      -16.66667        .        1.66081e+06 C(2_A)
+                                            .             .           225.69697          +Inf   1.66081e+06 Z(3_A)
 
     14 c_u_Metal_sum_limit_C(3)_
-                    BS     -22.00000      22.00000          -Inf      -22.00000          -Inf          +Inf
-                                            .             .           110.26263        .        1.43964e+06 C(3_A)
+                    BS     -72.00000      72.00000          -Inf      -72.00000          -Inf          +Inf
+                                            .             .           153.69697        .        1.66081e+06 C(3_A)
 
     15 c_u_Metal_sum_limit_A(1)_
-                    NU        .             .               -Inf     -161.65432    -672.40727   1.33095e+06 Z(2_A)
-                                         672.40727        .            21.67901          +Inf   1.45422e+06 c_u_Metal_sum_limit_Z(2)_
+                    NU        .             .               -Inf      -31.00000    -570.58182   1.64313e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                                         570.58182        .            24.00000          +Inf   1.67451e+06 g(B_Isfahan_Mashhad)
 
     16 c_u_Metal_sum_limit_A(2)_
-                    NU        .             .               -Inf     -161.65432    -672.40727   1.33095e+06 Z(2_A)
-                                         672.40727        .            21.67901          +Inf   1.45422e+06 c_u_Metal_sum_limit_Z(2)_
+                    NU        .             .               -Inf      -31.00000    -570.58182   1.64313e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                                         570.58182        .            24.00000          +Inf   1.67451e+06 g(B_Isfahan_Mashhad)
 
     17 c_u_Metal_sum_limit_A(3)_
-                    NU        .             .               -Inf     -110.00000    -672.40727   1.36568e+06 A(3_A)
-                                         672.40727        .            21.67901          +Inf   1.45422e+06 c_u_Metal_sum_limit_Z(2)_
+                    NU        .             .               -Inf      -31.00000    -570.58182   1.64313e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                                         570.58182        .            24.00000          +Inf   1.67451e+06 g(B_Isfahan_Mashhad)
 
     18 c_u_Metal_in_alloy_limit_A_Z_f_
-                    BS    -272.26263     272.26263          -Inf     -290.00000        .        1.43964e+06 c_u_Metal_sum_limit_C(1)_
-                                            .             .          -250.26263        .        1.43964e+06 C(3_A)
+                    BS    -515.69697     515.69697          -Inf     -683.69697        .        1.66081e+06 c_u_Metal_sum_limit_C(1)_
+                                            .             .          -443.69697        .        1.66081e+06 C(3_A)
 
     19 c_u_Metal_in_alloy_limit_A_Z_t_
-                    BS    -609.19192     609.19192          -Inf     -631.19192        .        1.43964e+06 C(3_A)
-                                            .             .          -591.45455        .        1.43964e+06 c_u_Metal_sum_limit_C(1)_
+                    BS    -729.39394     729.39394          -Inf     -801.39394        .        1.66081e+06 C(3_A)
+                                            .             .          -561.39394        .        1.66081e+06 c_u_Metal_sum_limit_C(1)_
 
     20 c_u_Metal_in_alloy_limit_A_C_f_
-                    BS    -223.55556     223.55556          -Inf     -245.55556        .        1.43964e+06 C(3_A)
-                                            .             .          -205.81818        .        1.43964e+06 c_u_Metal_sum_limit_C(1)_
+                    BS    -184.66667     184.66667          -Inf     -256.66667        .        1.66081e+06 C(3_A)
+                                            .             .           -16.66667        .        1.66081e+06 c_u_Metal_sum_limit_C(1)_
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page   3
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
     21 c_u_Metal_in_alloy_limit_A_C_t_
-                    BS    -878.26263     878.26263          -Inf     -896.00000        .        1.43964e+06 c_u_Metal_sum_limit_C(1)_
-                                            .             .          -856.26263        .        1.43964e+06 C(3_A)
+                    BS   -1371.69697    1371.69697          -Inf    -1539.69697        .        1.66081e+06 c_u_Metal_sum_limit_C(1)_
+                                            .             .         -1299.69697        .        1.66081e+06 C(3_A)
 
     22 c_u_Metal_in_alloy_limit_A_A_f_
-                    NU        .             .               -Inf      -72.74444    -672.40727   1.39073e+06 Z(2_A)
-                                         672.40727        .             9.75556          +Inf    1.4462e+06 c_u_Metal_sum_limit_Z(2)_
+                    NU        .             .               -Inf      -31.00000    -570.58182   1.64313e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                                         570.58182        .            24.00000          +Inf   1.67451e+06 g(B_Isfahan_Mashhad)
 
     23 c_u_Metal_in_alloy_limit_A_A_t_
-                    BS    -495.81818     495.81818          -Inf     -495.81818          -Inf          +Inf
-                                            .             .          -363.55556     369.82400   1.25628e+06 c_u_Metal_in_alloy_limit_A_A_f_
+                    BS    -700.36364     700.36364          -Inf     -700.36364          -Inf          +Inf
+                                            .             .          -644.00000     313.82000   1.44103e+06 c_u_Metal_in_alloy_limit_A_A_f_
 
     24 c_u_Metal_in_alloy_limit_A_F_f_
-                    BS        .             .               -Inf      -28.00000   -1155.16444   1.43964e+06 F(1_A)
-                                            .             .              .               +Inf   1.43964e+06
+                    BS        .             .               -Inf      -28.00000   -1097.37778   1.66081e+06 F(1_A)
+                                            .             .              .               +Inf   1.66081e+06
 
     25 c_u_Metal_in_alloy_limit_A_F_t_
-                    BS    -275.45455     275.45455          -Inf     -275.45455          -Inf          +Inf
-                                            .             .          -247.45455    1155.16444   1.12145e+06 F(1_A)
+                    BS    -389.09091     389.09091          -Inf     -389.09091          -Inf          +Inf
+                                            .             .          -361.09091    1097.37778   1.23383e+06 F(1_A)
 
     26 c_u_Metal_in_alloy_limit_B_Z_f_
-                    BS    -111.11111     111.11111          -Inf     -286.00000        .        1.43964e+06 c_u_Alloy_sum_limit(B)_
-                                            .             .           -93.37374        .        1.43964e+06 c_u_Metal_in_alloy_limit_B_C_f_
+                    BS    -133.33333     133.33333          -Inf     -666.66667        .        1.66081e+06 c_u_Alloy_sum_limit(B)_
+                                            .             .          -116.66667        .        1.66081e+06 c_u_Metal_in_alloy_limit_B_C_f_
 
     27 c_u_Metal_in_alloy_limit_B_Z_t_
-                    BS    -444.44444     444.44444          -Inf     -462.18182        .        1.43964e+06 c_u_Metal_in_alloy_limit_B_C_f_
-                                            .             .          -269.55556        .        1.43964e+06 c_u_Alloy_sum_limit(B)_
+                    BS    -533.33333     533.33333          -Inf     -550.00000        .        1.66081e+06 c_u_Metal_in_alloy_limit_B_C_f_
+                                            .             .            43.63636        .        1.66081e+06 c_u_Alloy_sum_limit(B)_
 
     28 c_u_Metal_in_alloy_limit_B_C_f_
-                    NU        .             .               -Inf      -17.73737        .        1.43964e+06 c_u_Metal_sum_limit_Z(2)_
-                                            .             .            26.44444          +Inf   1.43964e+06 C(2_B)
+                    NU        .             .               -Inf      -16.66667        .        1.66081e+06 C(2_A)
+                                            .             .           225.69697          +Inf   1.66081e+06 Z(3_A)
 
     29 c_u_Metal_in_alloy_limit_B_C_t_
-                    BS    -361.11111     361.11111          -Inf     -361.11111          -Inf          +Inf
-                                            .             .          -343.37374        .        1.43964e+06 c_u_Metal_in_alloy_limit_B_C_f_
+                    BS    -433.33333     433.33333          -Inf     -433.33333          -Inf          +Inf
+                                            .             .          -416.66667        .        1.66081e+06 c_u_Metal_in_alloy_limit_B_C_f_
 
     30 c_u_Metal_in_alloy_limit_B_A_f_
-                    BS        .             .               -Inf     -110.00000    -672.40727   1.43964e+06 A(3_B)
-                                            .             .              .               +Inf   1.43964e+06
+                    BS        .             .               -Inf      -31.00000    -570.58182   1.66081e+06 A(1_B)
+                                            .             .              .               +Inf   1.66081e+06
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page   4
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
     31 c_u_Metal_in_alloy_limit_B_A_t_
-                    BS    -388.88889     388.88889          -Inf     -388.88889          -Inf          +Inf
-                                            .             .          -278.88889     672.40727   1.17815e+06 A(3_B)
+                    BS    -466.66667     466.66667          -Inf     -466.66667          -Inf          +Inf
+                                            .             .          -435.66667     570.58182   1.39454e+06 A(1_B)
 
     32 c_u_Metal_in_alloy_limit_B_F_f_
-                    NU        .             .               -Inf      -34.00000   -1155.16444   1.40037e+06 C(2_B)
-                                        1155.16444        .            22.80519          +Inf   1.46599e+06 c_u_Metal_sum_limit_Z(2)_
+                    NU        .             .               -Inf      -92.30769   -1097.37778   1.55952e+06 c_u_Metal_in_alloy_limit_B_Z_f_
+                                        1097.37778        .            21.42857          +Inf   1.68433e+06 C(2_A)
 
     33 c_u_Metal_in_alloy_limit_B_F_t_
-                    BS    -138.88889     138.88889          -Inf     -138.88889          -Inf          +Inf
-                                            .             .           -86.00000     742.60571   1.33651e+06 c_u_Metal_in_alloy_limit_B_F_f_
+                    BS    -166.66667     166.66667          -Inf     -166.66667          -Inf          +Inf
+                                            .             .           -23.07692     705.45714   1.54324e+06 c_u_Metal_in_alloy_limit_B_F_f_
 
     34 c_u_Export_from_main_fac_limit(A)_
-                    NU        .             .               -Inf     -401.81818    -369.82400   1.29104e+06 g(A_Isfahan_Kerman)
-                                         369.82400        .            98.18182          +Inf   1.47595e+06 g(B_Isfahan_Kerman)
+                    NU        .             .               -Inf      -56.36364    -313.82000   1.64313e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                                         313.82000        .            43.63636          +Inf   1.67451e+06 g(B_Isfahan_Mashhad)
 
     35 c_u_Export_from_main_fac_limit(B)_
-                    NU        .             .               -Inf     -555.55556    -519.82400   1.15085e+06 t(B_Main_Isfahan)
-                                         519.82400        .           142.62626          +Inf   1.51379e+06 c_u_transportation_limit_t(1_Tehran)_
+                    NU        .             .               -Inf     -310.30303    -493.82000   1.50758e+06 t(B_Main_Isfahan)
+                                         493.82000        .            76.96345          +Inf   1.69882e+06 c_u_discount_limit_4(1)_
 
     36 c_u_buy_from_fac_limit_f(1)_
-                    BS   -1885.57576    1885.57576          -Inf    -1980.12550    -459.23048   2.30556e+06 c_u_Max_extracted_ore_limit(3)_
-                                            .             .         -1780.87542        .06000   1.43953e+06 c_u_buy_from_fac_limit_t(1)_
+                    BS   -1517.97980    1517.97980          -Inf    -1517.97980       -.42000   1.66145e+06 c_u_container_limit(2_Isfahan)_
+                                            .             .         -1414.54545        .06000   1.66072e+06 c_u_transportation_limit_t(1_Tehran)_
 
     37 c_u_buy_from_fac_limit_f(2)_
-                    BS        .             .               -Inf         .          -18.17600   1.43964e+06 t(A_2_Tehran)
-                                            .             .              .             .03600   1.43964e+06 h(2)
+                    BS        .             .               -Inf         .            -.26400   1.66081e+06 t(B_2_Tehran)
+                                            .             .              .             .03600   1.66081e+06 c_u_transportation_limit_t(2_Isfahan)_
 
     38 c_u_buy_from_fac_limit_t(1)_
-                    NU        .             .               -Inf     -261.75084       -.02400   1.43964e+06 g(A_Isfahan_Tabriz)
-                                            .02400        .            23.77104          +Inf   1.43965e+06 c_u_transportation_limit_t(1_Tehran)_
+                    BS     -70.50505      70.50505          -Inf     -329.09091       -.02400   1.66082e+06 c_u_transportation_limit_t(1_Tehran)_
+                                            .             .           -70.50505        .16800    1.6608e+06 c_u_container_limit(2_Isfahan)_
 
     39 c_u_buy_from_fac_limit_t(2)_
-                    BS        .             .               -Inf         .            -.01500   1.43964e+06 h(2)
-                                            .             .              .           18.17600   1.43964e+06 t(A_2_Tehran)
+                    BS        .             .               -Inf         .            -.01500   1.66081e+06 c_u_transportation_limit_t(2_Isfahan)_
+                                            .             .              .             .11000   1.66081e+06 t(B_2_Tehran)
 
     40 c_u_container_limit(1_Tehran)_
-                    NU        .             .               -Inf      -28.52525      -1.80000   1.43959e+06 c_u_transportation_limit_t(1_Tehran)_
-                                           1.80000        .           400.00000          +Inf   1.44036e+06 r_l_transportation_limit2(Tehran)_
+                    NU        .             .               -Inf     -310.30303      -1.82000   1.66025e+06 t(B_Main_Isfahan)
+                                           1.82000        .            84.60606          +Inf   1.66097e+06 c_u_buy_from_fac_limit_t(1)_
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page   5
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
     41 c_u_container_limit(1_Isfahan)_
-                    BS    -600.00000     600.00000          -Inf     -628.52525      -2.10000    1.4409e+06 r_l_transportation_limit2(Isfahan)_
-                                            .             .          -600.00000        .10000   1.43958e+06 B(2_Isfahan)
+                    BS    -600.00000     600.00000          -Inf    -1223.03030      -2.12000   1.66209e+06 r_l_transportation_limit2(Isfahan)_
+                                            .             .          -600.00000        .14000   1.66073e+06 c_u_container_limit(2_Isfahan)_
 
     42 c_u_container_limit(2_Tehran)_
-                    BS        .             .               -Inf         .           -2.40000   1.43964e+06 B(2_Tehran)
-                                            .             .              .           18.17600   1.43964e+06 t(A_2_Tehran)
+                    NU        .             .               -Inf         .           -2.40000   1.66081e+06 c_u_transportation_limit_t(2_Tehran)_
+                                           2.40000        .              .               +Inf   1.66081e+06 B(2_Tehran)
 
     43 c_u_container_limit(2_Isfahan)_
-                    BS        .             .               -Inf         .            -.10000   1.43964e+06 B(2_Isfahan)
-                                            .             .              .           19.97600   1.43964e+06 t(A_2_Isfahan)
+                    NU        .             .               -Inf         .            -.14000   1.66081e+06 c_u_buy_from_fac_limit_f(2)_
+                                            .14000        .              .               +Inf   1.66081e+06 c_u_buy_from_fac_limit_t(2)_
 
     44 c_u_container_limit(Main_Tehran)_
-                    NU        .             .               -Inf     -571.47475      -2.00000    1.4385e+06 c_u_transportation_limit_t(Main_Tehran)_
-                                           2.00000        .           264.34343          +Inf   1.44017e+06 c_u_transportation_limit_f(Main_Tehran)_
+                    NU        .             .               -Inf    -1188.48485      -2.00000   1.65844e+06 c_u_transportation_limit_t(Main_Tehran)_
+                                           2.00000        .           311.51515          +Inf   1.66144e+06 c_u_transportation_limit_f(Main_Tehran)_
 
     45 c_u_container_limit(Main_Isfahan)_
-                    NU        .             .               -Inf     -157.05051       -.20000   1.43961e+06 g(A_Isfahan_Tabriz)
-                                            .20000        .            28.52525          +Inf   1.43965e+06 c_u_transportation_limit_t(1_Tehran)_
+                    NU        .             .               -Inf      -84.60606       -.18000    1.6608e+06 c_u_buy_from_fac_limit_t(1)_
+                                            .18000        .           623.03030          +Inf   1.66093e+06 c_u_transportation_limit_f(Main_Tehran)_
 
     46 c_u_transportation_limit_t(1_Tehran)_
-                    BS       -.28525        .28525          -Inf       -3.42626      -2.00000   1.43965e+06 c_u_buy_from_fac_limit_t(1)_
-                                            .             .             1.82949        .        1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
+                    NU        .             .               -Inf       -3.10303      -2.00000   1.66081e+06 t(B_Main_Isfahan)
+                                           2.00000        .              .84606          +Inf   1.66082e+06 c_u_buy_from_fac_limit_t(1)_
 
     47 c_u_transportation_limit_t(1_Isfahan)_
-                    NU        .             .               -Inf        -.28525        .        1.43964e+06 c_u_transportation_limit_t(1_Tehran)_
-                                            .             .             1.57051          +Inf   1.43964e+06 g(A_Isfahan_Tabriz)
+                    NU        .             .               -Inf       -6.23030      -2.00000    1.6608e+06 c_u_transportation_limit_f(Main_Tehran)_
+                                           2.00000        .              .84606          +Inf   1.66082e+06 c_u_buy_from_fac_limit_t(1)_
 
     48 c_u_transportation_limit_t(2_Tehran)_
-                    BS        .             .               -Inf         .           -3.60000   1.43964e+06 h(2)
-                                            .             .            41.00000     240.00000   1.43964e+06 B(2_Tehran)
+                    BS        .             .               -Inf         .           -3.60000   1.66081e+06 c_u_transportation_limit_t(2_Isfahan)_
+                                            .             .              .           16.50000   1.66081e+06 t(B_2_Tehran)
 
     49 c_u_transportation_limit_t(2_Isfahan)_
-                    BS        .             .               -Inf         .           -6.00000   1.43964e+06 h(2)
-                                            .             .             1.57051      10.00000   1.43964e+06 B(2_Isfahan)
+                    NU        .             .               -Inf         .           -6.00000   1.66081e+06 c_u_transportation_limit_f(2_Isfahan)_
+                                           6.00000        .              .               +Inf   1.66081e+06 c_u_buy_from_fac_limit_t(2)_
 
     50 c_u_transportation_limit_t(Main_Tehran)_
-                    BS      -5.71475       5.71475          -Inf       -6.28525        .        1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
-                                            .             .            -2.57374       2.00000   1.43963e+06 c_u_buy_from_fac_limit_t(1)_
+                    BS     -11.88485      11.88485          -Inf      -15.00000      -4.00000   1.66086e+06 c_u_transportation_limit_t(1_Isfahan)_
+                                            .             .            -6.00000        .        1.66081e+06 h(Main)
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page   6
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
     51 c_u_transportation_limit_t(Main_Isfahan)_
-                    NU        .             .               -Inf       -8.85576        .        1.43964e+06 h(Main)
-                                            .             .             5.71475          +Inf   1.43964e+06 c_u_transportation_limit_t(Main_Tehran)_
+                    BS      -5.88485       5.88485          -Inf       -7.43636      -4.00000   1.66084e+06 c_u_transportation_limit_t(1_Tehran)_
+                                            .             .             6.00000        .        1.66081e+06 h(Main)
 
     52 c_u_transportation_limit_f(1_Tehran)_
-                    BS     -12.28525      12.28525          -Inf      -12.57051        .        1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
-                                            .             .           -10.19125       3.00000   1.43961e+06 c_u_buy_from_fac_limit_t(1)_
+                    BS     -10.58990      10.58990          -Inf      -12.66667      -6.00000   1.66088e+06 c_u_transportation_limit_t(1_Isfahan)_
+                                            .             .            -8.52121       3.00000   1.66078e+06 c_u_transportation_limit_t(1_Tehran)_
 
     53 c_u_transportation_limit_f(1_Isfahan)_
-                    BS     -12.57051      12.57051          -Inf      -13.61751      -6.00000   1.43972e+06 c_u_buy_from_fac_limit_t(1)_
-                                            .             .           -12.28525        .        1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
+                    BS     -10.58990      10.58990          -Inf      -11.62424      -6.00000   1.66088e+06 c_u_transportation_limit_t(1_Tehran)_
+                                            .             .            -6.43636       3.00000   1.66078e+06 c_u_transportation_limit_t(1_Isfahan)_
 
     54 c_u_transportation_limit_f(2_Tehran)_
-                    BS        .             .               -Inf         .         -240.00000   1.43964e+06 B(2_Tehran)
-                                            .             .              .           18.00000   1.43964e+06 h(2)
+                    BS        .             .               -Inf         .          -33.00000   1.66081e+06 t(B_2_Tehran)
+                                            .             .              .           18.00000   1.66081e+06 c_u_transportation_limit_t(2_Isfahan)_
 
     55 c_u_transportation_limit_f(2_Isfahan)_
-                    BS        .             .               -Inf         .          -10.00000   1.43964e+06 B(2_Isfahan)
-                                            .             .              .           18.00000   1.43964e+06 h(2)
+                    BS        .             .               -Inf         .          -21.00000   1.66081e+06 c_u_container_limit(2_Isfahan)_
+                                            .             .              .           18.00000   1.66081e+06 c_u_transportation_limit_t(2_Isfahan)_
 
     56 c_u_transportation_limit_f(Main_Tehran)_
-                    BS      -2.64343       2.64343          -Inf       -4.60657      -3.20000   1.43965e+06 c_u_buy_from_fac_limit_t(1)_
-                                            .             .            -2.28687        .        1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
+                    BS      -3.11515       3.11515          -Inf       -4.58636        .        1.66081e+06 h(Main)
+                                            .             .             2.00000       4.00000    1.6608e+06 c_u_transportation_limit_t(1_Isfahan)_
 
     57 c_u_transportation_limit_f(Main_Isfahan)_
-                    BS      -8.35818       8.35818          -Inf       -8.57212        .        1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
-                                            .             .            -6.14424        .        1.43964e+06 c_u_transportation_limit_t(Main_Isfahan)_
+                    BS      -9.11515       9.11515          -Inf      -10.58636        .        1.66081e+06 h(Main)
+                                            .             .            -7.56364       4.00000   1.66078e+06 c_u_transportation_limit_t(1_Tehran)_
 
     58 r_l_transportation_limit2(Tehran)_
-                    BS      24.00000      -4.00000      20.00000       24.00000   -1817.60000   1.39602e+06 t(A_2_Tehran)
-                                            .               +Inf       24.28525     180.00000   1.44396e+06 c_u_container_limit(1_Tehran)_
+                    BS      24.00000      -4.00000      20.00000       23.56364  -18318.00000   1.22118e+06 l(Tehran_Tabriz)
+                                            .               +Inf       27.10303     182.00000   1.66518e+06 c_u_container_limit(1_Tehran)_
 
     59 r_u_transportation_limit2(Tehran)_
-                    BS      24.00000      41.00000          -Inf       24.00000   -1817.60000   1.39602e+06 t(A_2_Tehran)
-                                            .           65.00000       24.28525     180.00000   1.44396e+06 c_u_container_limit(1_Tehran)_
+                    BS      24.00000      41.00000          -Inf       23.56364  -18318.00000   1.22118e+06 l(Tehran_Tabriz)
+                                            .           65.00000       27.10303     182.00000   1.66518e+06 c_u_container_limit(1_Tehran)_
 
     60 r_l_transportation_limit2(Isfahan)_
-                    NL      30.00000        .           30.00000       28.42949          -Inf   1.43997e+06 g(A_Isfahan_Tabriz)
-                                        -210.00000          +Inf       30.28525     210.00000   1.43958e+06 c_u_transportation_limit_t(1_Tehran)_
+                    NL      30.00000        .           30.00000       29.15394          -Inf   1.66099e+06 c_u_buy_from_fac_limit_t(1)_
+                                        -212.00000          +Inf       36.23030     212.00000   1.65949e+06 c_u_transportation_limit_f(Main_Tehran)_
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page   7
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
     61 r_u_transportation_limit2(Isfahan)_
                     BS      30.00000      40.00000          -Inf       30.00000          -Inf          -Inf
-                                            .           70.00000       30.28525     210.00000   1.44594e+06 r_l_transportation_limit2(Isfahan)_
+                                            .           70.00000       36.23030     212.00000   1.66717e+06 r_l_transportation_limit2(Isfahan)_
 
     62 c_u_transp_from_dep_to_market_limit(A_Tehran)_
-                    NU        .             .               -Inf     -401.81818    -371.82400   1.29024e+06 g(A_Isfahan_Kerman)
-                                         371.82400        .            98.18182          +Inf   1.47615e+06 g(B_Isfahan_Kerman)
+                    NU        .             .               -Inf      -56.36364    -315.82000   1.64301e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                                         315.82000        .            43.63636          +Inf   1.67459e+06 g(B_Isfahan_Mashhad)
 
     63 c_u_transp_from_dep_to_market_limit(A_Isfahan)_
-                    NU        .             .               -Inf     -261.75084    -370.02400   1.34279e+06 g(A_Isfahan_Tabriz)
-                                         370.02400        .            23.77104          +Inf   1.44844e+06 c_u_transportation_limit_t(1_Tehran)_
+                    NU        .             .               -Inf      -56.36364    -314.00000   1.64312e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                                         314.00000        .            43.63636          +Inf   1.67452e+06 g(B_Isfahan_Mashhad)
 
     64 c_u_transp_from_dep_to_market_limit(B_Tehran)_
-                    NU        .             .               -Inf     -261.75084    -521.82400   1.30306e+06 g(A_Isfahan_Tabriz)
-                                         521.82400        .           142.62626          +Inf   1.51407e+06 c_u_transportation_limit_t(1_Tehran)_
+                    NU        .             .               -Inf     -310.30303    -495.82000   1.50696e+06 t(B_Main_Isfahan)
+                                         495.82000        .            76.96345          +Inf   1.69897e+06 c_u_discount_limit_4(1)_
 
     65 c_u_transp_from_dep_to_market_limit(B_Isfahan)_
-                    NU        .             .               -Inf     -261.75084    -520.02400   1.30353e+06 g(A_Isfahan_Tabriz)
-                                         520.02400        .            23.77104          +Inf   1.45201e+06 c_u_transportation_limit_t(1_Tehran)_
+                    NU        .             .               -Inf      -70.50505    -494.00000   1.62598e+06 c_u_buy_from_fac_limit_t(1)_
+                                         494.00000        .            76.96345          +Inf   1.69883e+06 c_u_discount_limit_4(1)_
 
     66 c_u_container_limit2(Tehran_Mashhad)_
-                    NU        .             .               -Inf      -98.18182    -148.17600    1.4251e+06 g(B_Isfahan_Kerman)
-                                         148.17600        .           300.00000          +Inf    1.4841e+06 c_u_max_market_demand_limit(Mashhad_A)_
+                    NU        .             .               -Inf      -76.96345    -204.18000    1.6451e+06 c_u_discount_limit_4(1)_
+                                         204.18000        .            56.36364          +Inf   1.67232e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
     67 c_u_container_limit2(Tehran_Kerman)_
-                    NU        .             .               -Inf     -142.62626    -168.17600   1.41566e+06 c_u_transportation_limit_t(1_Tehran)_
-                                         168.17600        .           261.75084          +Inf   1.48366e+06 g(A_Isfahan_Tabriz)
+                    NU        .             .               -Inf      -76.96345    -194.18000   1.64587e+06 c_u_discount_limit_4(1)_
+                                         194.18000        .           310.30303          +Inf   1.72107e+06 t(B_Main_Isfahan)
 
     68 c_u_container_limit2(Tehran_Ahvaz)_
-                    NU        .             .               -Inf         .         -118.17600   1.43964e+06 g(A_Isfahan_Ahvaz)
-                                         118.17600        .           261.75084          +Inf   1.47058e+06 g(A_Isfahan_Tabriz)
+                    NU        .             .               -Inf      -76.96345    -234.18000   1.64279e+06 c_u_discount_limit_4(1)_
+                                         234.18000        .              .               +Inf   1.66081e+06 c_u_max_market_demand_limit(Ahvaz_B)_
 
     69 c_u_container_limit2(Tehran_Tabriz)_
-                    NU        .             .               -Inf      -98.18182    -128.17600   1.42706e+06 g(B_Isfahan_Kerman)
-                                         128.17600        .           401.81818          +Inf   1.49115e+06 g(A_Isfahan_Kerman)
+                    NU        .             .               -Inf      -43.63636    -184.18000   1.65278e+06 g(B_Isfahan_Mashhad)
+                                         184.18000        .            56.36364          +Inf   1.67119e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
     70 c_u_container_limit2(Isfahan_Mashhad)_
-                    NU        .             .               -Inf      -23.77104    -149.97600   1.43608e+06 c_u_transportation_limit_t(1_Tehran)_
-                                         149.97600        .              .               +Inf   1.43964e+06 g(B_Tehran_Mashhad)
+                    NU        .             .               -Inf      -43.63636    -206.00000   1.65182e+06 g(B_Isfahan_Mashhad)
+                                         206.00000        .            56.36364          +Inf   1.67242e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page   8
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
     71 c_u_container_limit2(Isfahan_Kerman)_
-                    NU        .             .               -Inf      -23.77104    -169.97600    1.4356e+06 c_u_transportation_limit_t(1_Tehran)_
-                                         169.97600        .           261.75084          +Inf   1.48414e+06 g(A_Isfahan_Tabriz)
+                    NU        .             .               -Inf      -76.96345    -196.00000   1.64573e+06 c_u_discount_limit_4(1)_
+                                         196.00000        .            70.50505          +Inf   1.67463e+06 c_u_buy_from_fac_limit_t(1)_
 
     72 c_u_container_limit2(Isfahan_Ahvaz)_
-                    NU        .             .               -Inf         .         -119.97600   1.43964e+06 g(A_Isfahan_Ahvaz)
-                                         119.97600        .           261.75084          +Inf   1.47105e+06 g(A_Isfahan_Tabriz)
+                    NU        .             .               -Inf      -76.96345    -236.00000   1.64265e+06 c_u_discount_limit_4(1)_
+                                         236.00000        .              .               +Inf   1.66081e+06 c_u_max_market_demand_limit(Ahvaz_B)_
 
     73 c_u_container_limit2(Isfahan_Tabriz)_
-                    NU        .             .               -Inf      -23.77104    -129.97600   1.43656e+06 c_u_transportation_limit_t(1_Tehran)_
-                                         129.97600        .           401.81818          +Inf   1.49187e+06 g(A_Isfahan_Kerman)
+                    NU        .             .               -Inf      -43.63636    -186.00000    1.6527e+06 g(B_Isfahan_Mashhad)
+                                         186.00000        .            56.36364          +Inf    1.6713e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
     74 c_u_market_sell_limit_f(Tehran_Mashhad)_
-                    BS        .             .               -Inf         .               -Inf   1.43964e+06
-                                            .             .              .98182   14707.60000   1.43964e+06 c_u_market_sell_limit_t(Tehran_Mashhad)_
+                    BS        .             .               -Inf         .               -Inf   1.66081e+06
+                                            .             .              .76963   20308.00000   1.66081e+06 c_u_market_sell_limit_t(Tehran_Mashhad)_
 
     75 c_u_market_sell_limit_f(Tehran_Kerman)_
-                    BS        .             .               -Inf         .               -Inf   1.43964e+06
-                                            .             .             1.42626   16732.60000   1.43964e+06 c_u_market_sell_limit_t(Tehran_Kerman)_
+                    BS        .             .               -Inf         .               -Inf   1.66081e+06
+                                            .             .              .76963   19333.00000   1.66081e+06 c_u_market_sell_limit_t(Tehran_Kerman)_
 
     76 c_u_market_sell_limit_f(Tehran_Ahvaz)_
-                    BS        .             .               -Inf         .               -Inf   1.43964e+06
-                                            .             .              .        11697.60000   1.43964e+06 c_u_market_sell_limit_t(Tehran_Ahvaz)_
+                    BS        .             .               -Inf         .               -Inf   1.66081e+06
+                                            .             .              .76963   23298.00000   1.66081e+06 c_u_market_sell_limit_t(Tehran_Ahvaz)_
 
     77 c_u_market_sell_limit_f(Tehran_Tabriz)_
-                    BS        .             .               -Inf         .               -Inf   1.43964e+06
-                                            .             .              .98182   12717.60000   1.43964e+06 c_u_market_sell_limit_t(Tehran_Tabriz)_
+                    BS        .             .               -Inf         .               -Inf   1.66081e+06
+                                            .             .              .43636   18318.00000   1.66081e+06 c_u_market_sell_limit_t(Tehran_Tabriz)_
 
     78 c_u_market_sell_limit_f(Isfahan_Mashhad)_
-                    BS        .             .               -Inf         .               -Inf   1.43964e+06
-                                            .             .              .23771   14897.60000   1.43964e+06 c_u_market_sell_limit_t(Isfahan_Mashhad)_
+                    BS        .             .               -Inf         .               -Inf   1.66081e+06
+                                            .             .              .43636   20500.00000   1.66081e+06 c_u_market_sell_limit_t(Isfahan_Mashhad)_
 
     79 c_u_market_sell_limit_f(Isfahan_Kerman)_
-                    BS        .             .               -Inf         .               -Inf   1.43964e+06
-                                            .             .              .23771   16897.60000   1.43964e+06 c_u_market_sell_limit_t(Isfahan_Kerman)_
+                    BS        .             .               -Inf         .               -Inf   1.66081e+06
+                                            .             .              .76963   19500.00000   1.66081e+06 c_u_market_sell_limit_t(Isfahan_Kerman)_
 
     80 c_u_market_sell_limit_f(Isfahan_Ahvaz)_
-                    BS        .             .               -Inf         .               -Inf   1.43964e+06
-                                            .             .              .        11887.60000   1.43964e+06 c_u_market_sell_limit_t(Isfahan_Ahvaz)_
+                    BS        .             .               -Inf         .               -Inf   1.66081e+06
+                                            .             .              .76963   23490.00000   1.66081e+06 c_u_market_sell_limit_t(Isfahan_Ahvaz)_
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page   9
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
     81 c_u_market_sell_limit_f(Isfahan_Tabriz)_
-                    BS        .             .               -Inf         .               -Inf   1.43964e+06
-                                            .             .              .23771   12907.60000   1.43964e+06 c_u_market_sell_limit_t(Isfahan_Tabriz)_
+                    BS        .             .               -Inf         .               -Inf   1.66081e+06
+                                            .             .              .43636   18510.00000   1.66081e+06 c_u_market_sell_limit_t(Isfahan_Tabriz)_
 
     82 c_u_market_sell_limit_t(Tehran_Mashhad)_
-                    NU        .             .               -Inf         .       -14707.60000   1.43964e+06 c_u_market_sell_limit_f(Tehran_Mashhad)_
-                                       14707.60000        .             3.00000          +Inf   1.48377e+06 c_u_max_market_demand_limit(Mashhad_A)_
+                    NU        .             .               -Inf         .       -20308.00000   1.66081e+06 c_u_market_sell_limit_f(Tehran_Mashhad)_
+                                       20308.00000        .              .56364          +Inf   1.67226e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
     83 c_u_market_sell_limit_t(Tehran_Kerman)_
-                    NU        .             .               -Inf         .       -16732.60000   1.43964e+06 c_u_market_sell_limit_f(Tehran_Kerman)_
-                                       16732.60000        .             2.61751          +Inf   1.48344e+06 g(A_Isfahan_Tabriz)
+                    NU        .             .               -Inf         .       -19333.00000   1.66081e+06 c_u_market_sell_limit_f(Tehran_Kerman)_
+                                       19333.00000        .             3.10303          +Inf    1.7208e+06 t(B_Main_Isfahan)
 
     84 c_u_market_sell_limit_t(Tehran_Ahvaz)_
-                    NU        .             .               -Inf         .       -11697.60000   1.43964e+06 c_u_market_sell_limit_f(Tehran_Ahvaz)_
-                                       11697.60000        .             2.61751          +Inf   1.47026e+06 g(A_Isfahan_Tabriz)
+                    NU        .             .               -Inf         .       -23298.00000   1.66081e+06 c_u_market_sell_limit_f(Tehran_Ahvaz)_
+                                       23298.00000        .              .               +Inf   1.66081e+06 c_u_max_market_demand_limit(Ahvaz_B)_
 
     85 c_u_market_sell_limit_t(Tehran_Tabriz)_
-                    NU        .             .               -Inf         .       -12717.60000   1.43964e+06 c_u_market_sell_limit_f(Tehran_Tabriz)_
-                                       12717.60000        .             4.01818          +Inf   1.49075e+06 g(A_Isfahan_Kerman)
+                    NU        .             .               -Inf         .       -18318.00000   1.66081e+06 c_u_market_sell_limit_f(Tehran_Tabriz)_
+                                       18318.00000        .              .56364          +Inf   1.67114e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
     86 c_u_market_sell_limit_t(Isfahan_Mashhad)_
-                    NU        .             .               -Inf         .       -14897.60000   1.43964e+06 c_u_market_sell_limit_f(Isfahan_Mashhad)_
-                                       14897.60000        .              .               +Inf   1.43964e+06 g(B_Tehran_Mashhad)
+                    NU        .             .               -Inf         .       -20500.00000   1.66081e+06 c_u_market_sell_limit_f(Isfahan_Mashhad)_
+                                       20500.00000        .              .56364          +Inf   1.67237e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
     87 c_u_market_sell_limit_t(Isfahan_Kerman)_
-                    NU        .             .               -Inf         .       -16897.60000   1.43964e+06 c_u_market_sell_limit_f(Isfahan_Kerman)_
-                                       16897.60000        .             2.61751          +Inf   1.48387e+06 g(A_Isfahan_Tabriz)
+                    NU        .             .               -Inf         .       -19500.00000   1.66081e+06 c_u_market_sell_limit_f(Isfahan_Kerman)_
+                                       19500.00000        .              .70505          +Inf   1.67456e+06 c_u_buy_from_fac_limit_t(1)_
 
     88 c_u_market_sell_limit_t(Isfahan_Ahvaz)_
-                    NU        .             .               -Inf         .       -11887.60000   1.43964e+06 c_u_market_sell_limit_f(Isfahan_Ahvaz)_
-                                       11887.60000        .             2.61751          +Inf   1.47076e+06 g(A_Isfahan_Tabriz)
+                    NU        .             .               -Inf         .       -23490.00000   1.66081e+06 c_u_market_sell_limit_f(Isfahan_Ahvaz)_
+                                       23490.00000        .              .               +Inf   1.66081e+06 c_u_max_market_demand_limit(Ahvaz_B)_
 
     89 c_u_market_sell_limit_t(Isfahan_Tabriz)_
-                    NU        .             .               -Inf         .       -12907.60000   1.43964e+06 c_u_market_sell_limit_f(Isfahan_Tabriz)_
-                                       12907.60000        .             4.01818          +Inf   1.49151e+06 g(A_Isfahan_Kerman)
+                    NU        .             .               -Inf         .       -18510.00000   1.66081e+06 c_u_market_sell_limit_f(Isfahan_Tabriz)_
+                                       18510.00000        .              .56364          +Inf   1.67125e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
     90 c_u_max_market_demand_limit(Mashhad_A)_
-                    BS     300.00000     300.00000          -Inf      201.81818    -147.07600   1.39552e+06 l(Tehran_Mashhad)
-                                            .          600.00000      300.00000      30.00000   1.44864e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                    BS     356.36364     243.63636          -Inf      300.00000     -30.00000   1.65012e+06 c_u_max_market_demand_limit(Tabriz_B)_
+                                            .          600.00000      400.00000      30.00000    1.6715e+06 c_u_max_market_demand_limit(Kerman_A)_
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  10
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
     91 c_u_max_market_demand_limit(Mashhad_B)_
-                    NU     400.00000        .               -Inf      400.00000     -30.00000   1.43964e+06 g(B_Tehran_Mashhad)
-                                          30.00000     400.00000      498.18182          +Inf   1.44259e+06 g(B_Isfahan_Kerman)
+                    BS     343.63636      56.36364          -Inf      300.00000     -30.00000    1.6505e+06 c_u_max_market_demand_limit(Kerman_A)_
+                                            .          400.00000      700.00000      30.00000   1.67112e+06 c_u_max_market_demand_limit(Tabriz_B)_
 
     92 c_u_max_market_demand_limit(Kerman_A)_
-                    BS     401.81818     398.18182          -Inf      401.81818     -30.00000   1.42759e+06 c_u_max_market_demand_limit(Mashhad_B)_
-                                            .          800.00000      500.00000       5.00000   1.44165e+06 t(A_1_Isfahan)
+                    NU     800.00000        .               -Inf      756.36364     -30.00000    1.6595e+06 g(B_Isfahan_Mashhad)
+                                          30.00000     800.00000      856.36364          +Inf    1.6625e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
     93 c_u_max_market_demand_limit(Kerman_B)_
-                    BS     698.18182     501.81818          -Inf      600.00000      -5.00000   1.43615e+06 t(A_1_Isfahan)
-                                            .         1200.00000      698.18182      30.00000   1.46059e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                    BS     300.00000     900.00000          -Inf      223.03655    -193.33000   1.60281e+06 l(Tehran_Kerman)
+                                            .         1200.00000      343.63636      30.00000   1.66981e+06 c_u_max_market_demand_limit(Kerman_A)_
 
     94 c_u_max_market_demand_limit(Ahvaz_A)_
-                    BS        .         1500.00000          -Inf         .         -116.97600   1.43964e+06 l(Tehran_Ahvaz)
-                                            .         1500.00000      401.81818      90.00000   1.43964e+06 c_u_max_market_demand_limit(Ahvaz_B)_
+                    BS        .         1500.00000          -Inf         .               -Inf   1.66081e+06
+                                            .         1500.00000       56.36364      60.00000   1.66081e+06 g(A_Isfahan_Ahvaz)
 
     95 c_u_max_market_demand_limit(Ahvaz_B)_
-                    NU    1500.00000        .               -Inf     1098.18182     -90.00000   1.40348e+06 g(A_Isfahan_Kerman)
-                                          90.00000    1500.00000     1500.00000          +Inf   1.43964e+06 g(A_Isfahan_Ahvaz)
+                    BS    1500.00000        .               -Inf     1443.63636     -60.00000   1.57081e+06 g(A_Isfahan_Ahvaz)
+                                            .         1500.00000     1500.00000          +Inf          +Inf
 
     96 c_u_max_market_demand_limit(Tabriz_A)_
-                    BS     400.00000    1000.00000          -Inf      301.81818    -127.17600   1.38877e+06 l(Tehran_Tabriz)
-                                            .         1400.00000      801.81818      60.00000   1.46364e+06 c_u_max_market_demand_limit(Tabriz_B)_
+                    BS     400.00000    1000.00000          -Inf      356.36364    -183.18000   1.58754e+06 l(Tehran_Tabriz)
+                                            .         1400.00000      456.36364      30.00000   1.67281e+06 c_u_max_market_demand_limit(Tabriz_B)_
 
     97 c_u_max_market_demand_limit(Tabriz_B)_
-                    NU    1100.00000        .               -Inf      698.18182     -60.00000   1.41554e+06 g(A_Isfahan_Kerman)
-                                          60.00000    1100.00000     1198.18182          +Inf   1.44554e+06 g(B_Isfahan_Kerman)
+                    NU    1100.00000        .               -Inf     1043.63636     -30.00000   1.65912e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                                          30.00000    1100.00000     1143.63636          +Inf   1.66212e+06 g(B_Isfahan_Mashhad)
+
+    98 c_u_discount_limit_1(1)_
+                    NU    2500.00000        .               -Inf       76.96970        .        1.66081e+06 d(1)
+                                            .         2500.00000     2576.96325          +Inf   1.66081e+06 c_u_discount_limit_4(1)_
+
+    99 c_u_discount_limit_1(2)_
+                    BS        .         3000.00000          -Inf         .               -Inf   1.66081e+06
+                                            .         3000.00000         .           19.14006   1.66081e+06 c_u_discount_limit_2(2)_
+
+   100 c_u_discount_limit_2(1)_
+                    BS   -2500.00000    2500.00000          -Inf    -2500.00000          -Inf          +Inf
+                                            .             .           -76.96970        .        1.66081e+06 c_u_discount_limit_1(1)_
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  11
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
+
+   No. Row name     St      Activity         Slack   Lower bound       Activity      Obj coef  Obj value at Limiting
+                                          Marginal   Upper bound          range         range   break point variable
+------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
+   101 c_u_discount_limit_2(2)_
+                    NU        .             .               -Inf         .          -19.14006   1.66081e+06 c_u_buy_from_fac_limit_f(2)_
+                                          19.14006        .              .               +Inf   1.66081e+06 c_u_buy_from_fac_limit_t(2)_
+
+   102 c_u_discount_limit_3(1_A)_
+                    NU        .             .               -Inf         .          -18.75000   1.66081e+06 R(A_1)
+                                          18.75000        .         3.07853e+07          +Inf   5.78885e+08 c_u_discount_limit_4(1)_
+
+   103 c_u_discount_limit_3(1_B)_
+                    NU        .             .               -Inf    -2576.96970     -26.00000   1.59381e+06 R(B_1)
+                                          26.00000        .         3.07853e+07          +Inf   8.02079e+08 c_u_discount_limit_4(1)_
+
+   104 c_u_discount_limit_3(2_A)_
+                    NU        .             .               -Inf         .          -19.49994   1.66081e+06 R(A_2)
+                                          19.49994        .              .               +Inf   1.66081e+06 c_u_buy_from_fac_limit_f(2)_
+
+   105 c_u_discount_limit_3(2_B)_
+                    NU        .             .               -Inf         .          -26.99994   1.66081e+06 R(B_2)
+                                          26.99994        .              .               +Inf   1.66081e+06 c_u_buy_from_fac_limit_f(2)_
+
+   106 c_u_discount_limit_4(1)_
+                    BS  -3.07853e+07   3.07853e+07          -Inf   -9.99997e+08        .        1.66081e+06 c_u_discount_limit_1(1)_
+                                            .             .        -3.07853e+07        .00005   1.65934e+06 c_u_discount_limit_4(2)_
+
+   107 c_u_discount_limit_4(2)_
+                    NU        .             .               -Inf         .            -.00006   1.66081e+06 c_u_buy_from_fac_limit_f(2)_
+                                            .00006        .              .               +Inf   1.66081e+06 c_u_buy_from_fac_limit_t(2)_
+
+GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  12
+
+Problem:    
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
      1 g(A_Tehran_Mashhad)
-                    BS     300.00000     520.00000        .           142.94949     520.00000   1.43964e+06 g(A_Isfahan_Mashhad)
-                                            .               +Inf      300.00000     550.00000   1.44864e+06 c_u_max_market_demand_limit(Mashhad_B)_
+                    NL        .          520.00000        .           -43.63636          -Inf   1.66081e+06 g(B_Isfahan_Mashhad)
+                                            .               +Inf      300.00000     520.00000   1.66081e+06 g(B_Tehran_Mashhad)
 
      2 g(A_Tehran_Kerman)
-                    NL        .          540.00000        .           -98.18182          -Inf   1.43964e+06 g(B_Isfahan_Kerman)
-                                            .               +Inf      242.94949     540.00000   1.43964e+06 g(A_Tehran_Tabriz)
+                    BS     300.00000     540.00000        .           256.36364     510.00000   1.65181e+06 c_u_max_market_demand_limit(Kerman_A)_
+                                            .               +Inf      600.00000     540.00000   1.66081e+06 g(B_Isfahan_Kerman)
 
      3 g(A_Tehran_Ahvaz)
-                    NL        .          490.00000        .          -157.05051          -Inf   1.43964e+06 g(A_Isfahan_Tabriz)
-                                            .               +Inf         .          490.00000   1.43964e+06 g(A_Isfahan_Ahvaz)
+                    NL        .          490.00000        .              .               -Inf   1.66081e+06 c_u_max_market_demand_limit(Ahvaz_B)_
+                                         -60.00000          +Inf       56.36364     550.00000   1.65743e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
      4 g(A_Tehran_Tabriz)
-                    BS     242.94949     500.00000        .           214.42424     500.00000   1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
-                                            .               +Inf      400.00000     500.00000   1.43964e+06 g(A_Isfahan_Mashhad)
+                    NL        .          500.00000        .          -155.15152          -Inf   1.66081e+06 t(B_Main_Isfahan)
+                                            .               +Inf      400.00000     500.00000   1.66081e+06 g(A_Isfahan_Tabriz)
 
      5 g(A_Isfahan_Mashhad)
-                    NL        .          520.00000        .              .               -Inf   1.43964e+06 g(B_Tehran_Mashhad)
-                                            .               +Inf      157.05051     520.00000   1.43964e+06 g(A_Isfahan_Tabriz)
+                    BS     356.36364     520.00000        .            56.36364     520.00000   1.66081e+06 g(A_Tehran_Mashhad)
+                                            .               +Inf      400.00000     550.00000    1.6715e+06 c_u_max_market_demand_limit(Kerman_A)_
 
      6 g(A_Isfahan_Kerman)
-                    BS     401.81818     540.00000        .           158.86869     540.00000   1.43964e+06 g(A_Tehran_Kerman)
-                                            .               +Inf      500.00000     545.00000   1.44165e+06 t(A_1_Isfahan)
+                    BS     500.00000     540.00000        .           200.00000     540.00000   1.66081e+06 g(B_Isfahan_Kerman)
+                                            .               +Inf      500.00000          +Inf          +Inf
 
      7 g(A_Isfahan_Ahvaz)
-                    BS        .          490.00000        .          -242.94949     490.00000   1.43964e+06 g(A_Tehran_Ahvaz)
-                                            .               +Inf      401.81818     580.00000   1.43964e+06 c_u_max_market_demand_limit(Ahvaz_B)_
+                    NL        .          490.00000        .              .               -Inf   1.66081e+06 c_u_max_market_demand_limit(Ahvaz_B)_
+                                         -60.00000          +Inf       56.36364     550.00000   1.65743e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
      8 g(A_Isfahan_Tabriz)
-                    BS     157.05051     500.00000        .          -100.00000     500.00000   1.43964e+06 g(A_Isfahan_Mashhad)
-                                            .               +Inf      185.57576     500.00000   1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
+                    BS     400.00000     500.00000        .          -100.00000     500.00000   1.66081e+06 g(A_Tehran_Tabriz)
+                                            .               +Inf      456.36364     530.00000   1.67281e+06 c_u_max_market_demand_limit(Tabriz_B)_
 
      9 g(B_Tehran_Mashhad)
-                    BS        .          700.00000        .          -242.94949     670.00000   1.43964e+06 c_u_max_market_demand_limit(Mashhad_B)_
-                                            .               +Inf      157.05051     700.00000   1.43964e+06 g(A_Isfahan_Mashhad)
+                    BS     300.00000     700.00000        .           -56.36364     700.00000   1.66081e+06 g(A_Tehran_Mashhad)
+                                            .               +Inf      300.00000          +Inf          +Inf
 
     10 g(B_Tehran_Kerman)
-                    BS     600.00000     690.00000        .           357.05051     690.00000   1.43964e+06 g(A_Tehran_Kerman)
-                                            .               +Inf      600.00000          +Inf          +Inf
+                    BS     300.00000     690.00000        .          -200.00000     690.00000   1.66081e+06 g(B_Isfahan_Kerman)
+                                            .               +Inf      343.63636     720.00000   1.66981e+06 c_u_max_market_demand_limit(Kerman_A)_
 
-GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  12
+GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  13
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
     11 g(B_Tehran_Ahvaz)
-                    BS    1000.00000     730.00000        .          1000.00000     730.00000   1.43964e+06 g(A_Tehran_Ahvaz)
+                    BS    1000.00000     730.00000        .           943.63636     670.00000   1.60081e+06 g(A_Tehran_Ahvaz)
                                             .               +Inf     1000.00000          +Inf          +Inf
 
     12 g(B_Tehran_Tabriz)
-                    BS     257.05051     710.00000        .           100.00000     710.00000   1.43964e+06 g(A_Isfahan_Mashhad)
-                                            .               +Inf      285.57576     710.00000   1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
+                    BS     500.00000     710.00000        .           100.00000     710.00000   1.66081e+06 g(A_Tehran_Tabriz)
+                                            .               +Inf      500.00000          +Inf          +Inf
 
     13 g(B_Isfahan_Mashhad)
-                    BS     400.00000     700.00000        .           242.94949     700.00000   1.43964e+06 g(A_Isfahan_Mashhad)
-                                            .               +Inf      400.00000          +Inf          +Inf
+                    BS      43.63636     700.00000        .          -111.51515     670.00000    1.6595e+06 c_u_max_market_demand_limit(Kerman_A)_
+                                            .               +Inf      343.63636     700.00000   1.66081e+06 g(A_Tehran_Mashhad)
 
     14 g(B_Isfahan_Kerman)
-                    BS      98.18182     690.00000        .          -300.00000     685.00000   1.43915e+06 t(A_1_Isfahan)
-                                            .               +Inf      341.13131     690.00000   1.43964e+06 g(A_Tehran_Kerman)
+                    NL        .          690.00000        .          -155.15152          -Inf   1.66081e+06 t(B_Main_Isfahan)
+                                            .               +Inf      300.00000     690.00000   1.66081e+06 g(B_Tehran_Kerman)
 
     15 g(B_Isfahan_Ahvaz)
-                    BS     500.00000     730.00000        .            98.18182     640.00000   1.39464e+06 c_u_max_market_demand_limit(Ahvaz_B)_
-                                            .               +Inf      500.00000     730.00000   1.43964e+06 g(A_Tehran_Ahvaz)
+                    BS     500.00000     730.00000        .           443.63636     670.00000   1.63081e+06 g(A_Isfahan_Ahvaz)
+                                            .               +Inf      500.00000          +Inf          +Inf
 
     16 g(B_Isfahan_Tabriz)
-                    BS     842.94949     710.00000        .           814.42424     710.00000   1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
-                                            .               +Inf     1000.00000     710.00000   1.43964e+06 g(A_Isfahan_Mashhad)
+                    BS     600.00000     710.00000        .           543.63636     680.00000   1.64281e+06 c_u_max_market_demand_limit(Tabriz_B)_
+                                            .               +Inf     1000.00000     710.00000   1.66081e+06 g(A_Tehran_Tabriz)
 
     17 Extracted_ore(1)
-                    BS     560.00000     -45.00000        .           481.07865    -293.10077   1.30071e+06 c_u_Max_extracted_ore_limit(1)_
+                    BS     560.00000     -45.00000        .           471.42857    -254.57253   1.54345e+06 c_u_Max_extracted_ore_limit(1)_
                                             .               +Inf      560.00000          +Inf          +Inf
 
     18 Extracted_ore(2)
-                    BS    1000.00000     -65.00000        .           830.00000    -432.75507   1.07189e+06 c_u_Max_extracted_ore_limit(2)_
+                    BS    1000.00000     -65.00000        .           896.66667    -390.65010   1.33516e+06 c_u_Max_extracted_ore_limit(2)_
                                             .               +Inf     1000.00000          +Inf          +Inf
 
     19 Extracted_ore(3)
-                    BS     440.00000     -70.00000        .           161.41593    -225.86004   1.37107e+06 c_u_Max_extracted_ore_limit(3)_
-                                            .               +Inf      440.00000          +Inf          +Inf
+                    BS    1440.00000     -70.00000        .          1316.00000    -197.51434   1.47719e+06 c_u_Max_extracted_ore_limit(3)_
+                                            .               +Inf     1440.00000          +Inf          +Inf
 
     20 t(A_1_Tehran)
-                    NL        .         -375.00000        .          -242.94949          -Inf   1.44086e+06 g(A_Tehran_Tabriz)
-                                          -5.00000          +Inf       98.18182    -370.00000   1.43915e+06 g(B_Isfahan_Kerman)
+                    NL        .         -375.00000        .              .               -Inf   1.66081e+06 R(A_1)
+                                         -42.25000          +Inf       43.63636    -332.75000   1.65897e+06 g(B_Isfahan_Mashhad)
 
-GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  13
+GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  14
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
     21 t(A_1_Isfahan)
-                    NL        .         -375.00000        .          -401.81818          -Inf   1.44165e+06 g(A_Isfahan_Kerman)
-                                          -5.00000          +Inf       98.18182    -370.00000   1.43915e+06 g(B_Isfahan_Kerman)
+                    NL        .         -375.00000        .              .               -Inf   1.66081e+06 R(A_1)
+                                         -42.25000          +Inf       43.63636    -332.75000   1.65897e+06 g(B_Isfahan_Mashhad)
 
     22 t(A_2_Tehran)
-                    NL        .         -390.00000        .              .               -Inf   1.43964e+06 c_u_buy_from_fac_limit_f(2)_
-                                         -18.17600          +Inf         .         -371.82400   1.43964e+06 c_u_buy_from_fac_limit_t(2)_
+                    NL        .         -390.00000        .              .               -Inf   1.66081e+06 R(A_2)
+                                         -37.94000          +Inf         .         -352.06000   1.66081e+06 c_u_buy_from_fac_limit_t(2)_
 
     23 t(A_2_Isfahan)
-                    NL        .         -390.00000        .              .               -Inf   1.43964e+06 c_u_buy_from_fac_limit_f(2)_
-                                         -19.97600          +Inf         .         -370.02400   1.43964e+06 c_u_buy_from_fac_limit_t(2)_
+                    NL        .         -390.00000        .              .               -Inf   1.66081e+06 R(A_2)
+                                         -37.50000          +Inf         .         -352.50000   1.66081e+06 t(B_2_Isfahan)
 
     24 t(B_1_Tehran)
-                    BS    1857.05051    -520.00000        .          1700.00000    -520.04000   1.43957e+06 c_u_buy_from_fac_limit_t(1)_
-                                            .               +Inf     1885.57576    -520.00000   1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
+                    BS    1588.48485    -520.00000        .          1433.33333    -520.04000   1.66075e+06 c_u_transportation_limit_t(1_Tehran)_
+                                            .               +Inf     1900.00000    -519.96000   1.66088e+06 c_u_transportation_limit_t(1_Isfahan)_
 
     25 t(B_1_Isfahan)
-                    BS    1285.57576    -520.00000        .          1257.05051    -520.00000   1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
-                                            .               +Inf     1442.62626    -519.96000    1.4397e+06 c_u_buy_from_fac_limit_t(1)_
+                    BS     988.48485    -520.00000        .           676.96970    -520.04000   1.66077e+06 c_u_transportation_limit_t(1_Isfahan)_
+                                            .               +Inf     1143.63636    -519.96000   1.66085e+06 c_u_transportation_limit_t(1_Tehran)_
 
     26 t(B_2_Tehran)
-                    NL        .         -540.00000        .              .               -Inf   1.43964e+06 c_u_buy_from_fac_limit_f(2)_
-                                         -18.17600          +Inf         .         -521.82400   1.43964e+06 c_u_buy_from_fac_limit_t(2)_
+                    NL        .         -540.00000        .              .               -Inf   1.66081e+06 B(2_Tehran)
+                                           -.44000          +Inf         .         -539.56000   1.66081e+06 c_u_buy_from_fac_limit_t(2)_
 
     27 t(B_2_Isfahan)
-                    NL        .         -540.00000        .              .               -Inf   1.43964e+06 c_u_buy_from_fac_limit_f(2)_
-                                         -19.97600          +Inf         .         -520.02400   1.43964e+06 c_u_buy_from_fac_limit_t(2)_
+                    BS        .         -540.00000        .              .         -540.44000   1.66081e+06 t(B_2_Tehran)
+                                            .               +Inf         .         -520.86000   1.66081e+06 c_u_discount_limit_4(2)_
 
-    28 h(1)         BS        .62853    -120.00000        .              .62853  -91000.00000   1.38252e+06 t(A_2_Tehran)
-                                            .            1.00000         .68088        .        1.43972e+06 c_u_buy_from_fac_limit_t(1)_
+    28 h(1)         BS        .52949    -120.00000        .              .52949    -960.00000   1.66037e+06 c_u_container_limit(2_Isfahan)_
+                                            .            1.00000         .58121        .        1.66088e+06 c_u_transportation_limit_t(1_Tehran)_
 
-    29 h(2)         NL        .          -90.00000        .              .               -Inf   1.43964e+06 c_u_buy_from_fac_limit_t(2)_
-                                         -90.00000       1.00000         .             .        1.43964e+06 c_u_buy_from_fac_limit_f(2)_
+    29 h(2)         BS        .          -90.00000        .              .         -750.00000   1.66081e+06 t(B_2_Tehran)
+                                            .            1.00000         .             .        1.66081e+06 c_u_transportation_limit_t(2_Isfahan)_
 
-    30 B(1_Tehran)  BS      18.57051    -180.00000        .            17.00000    -184.00000   1.43957e+06 c_u_buy_from_fac_limit_t(1)_
-                                            .               +Inf       18.85576    -180.00000   1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
-
-GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  14
-
-Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
-
-   No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
-                                          Marginal   Upper bound          range         range   break point variable
------- ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
-    31 B(1_Isfahan) BS      18.85576    -210.00000        .            18.57051    -210.00000   1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
-                                            .               +Inf       20.42626    -206.00000   1.43972e+06 c_u_buy_from_fac_limit_t(1)_
-
-    32 B(2_Tehran)  NL        .         -240.00000        .              .               -Inf   1.43964e+06 c_u_container_limit(2_Tehran)_
-                                        -240.00000          +Inf         .             .        1.43964e+06 c_u_transportation_limit_t(2_Tehran)_
-
-    33 B(2_Isfahan) NL        .         -220.00000        .              .               -Inf   1.43964e+06 c_u_container_limit(2_Isfahan)_
-                                         -10.00000          +Inf         .         -210.00000   1.43964e+06 c_u_transportation_limit_t(2_Isfahan)_
-
-    34 B(Main_Tehran)
-                    BS       5.42949    -200.00000        .             5.14424    -200.00000   1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
-                                            .               +Inf        7.00000    -196.00000   1.43967e+06 c_u_buy_from_fac_limit_t(1)_
-
-    35 B(Main_Isfahan)
-                    BS      11.14424    -230.00000        .             9.57374    -234.00000    1.4396e+06 c_u_buy_from_fac_limit_t(1)_
-                                            .               +Inf       11.42949    -230.00000   1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
-
-    36 G(Tehran_Mashhad)
-                    BS       3.00000    -110.00000        .             2.01818  -14817.60000   1.39552e+06 l(Tehran_Mashhad)
-                                            .               +Inf        3.00000          +Inf          +Inf
-
-    37 G(Tehran_Kerman)
-                    BS       6.00000     -85.00000        .             4.57374  -16817.60000   1.33925e+06 l(Tehran_Kerman)
-                                            .               +Inf        6.00000          +Inf          +Inf
-
-    38 G(Tehran_Ahvaz)
-                    BS      10.00000    -120.00000        .            10.00000  -11817.60000   1.32267e+06 l(Tehran_Ahvaz)
-                                            .               +Inf       10.00000          +Inf          +Inf
-
-    39 G(Tehran_Tabriz)
-                    BS       5.00000    -100.00000        .             4.01818  -12817.60000   1.37606e+06 l(Tehran_Tabriz)
-                                            .               +Inf        5.00000          +Inf          +Inf
-
-    40 G(Isfahan_Mashhad)
-                    BS       4.00000    -100.00000        .             3.76229  -14997.60000   1.38005e+06 l(Isfahan_Mashhad)
-                                            .               +Inf        4.00000          +Inf          +Inf
+    30 B(1_Tehran)  BS      15.88485    -180.00000        .            14.33333    -184.00000   1.66075e+06 c_u_transportation_limit_t(1_Tehran)_
+                                            .               +Inf       19.00000    -176.00000   1.66088e+06 c_u_transportation_limit_t(1_Isfahan)_
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  15
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
+
+   No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
+                                          Marginal   Upper bound          range         range   break point variable
+------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
+    31 B(1_Isfahan) BS      15.88485    -210.00000        .            12.76970    -214.00000   1.66075e+06 c_u_transportation_limit_t(1_Isfahan)_
+                                            .               +Inf       17.43636    -206.00000   1.66088e+06 c_u_transportation_limit_t(1_Tehran)_
+
+    32 B(2_Tehran)  BS        .         -240.00000        .              .               -Inf   1.66081e+06
+                                            .               +Inf         .         -196.00000   1.66081e+06 t(B_2_Tehran)
+
+    33 B(2_Isfahan) BS        .         -220.00000        .              .         -264.00000   1.66081e+06 t(B_2_Tehran)
+                                            .               +Inf         .         -206.00000   1.66081e+06 c_u_container_limit(2_Isfahan)_
+
+    34 B(Main_Tehran)
+                    BS       8.11515    -200.00000        .             5.00000    -204.00000   1.66078e+06 c_u_transportation_limit_t(1_Isfahan)_
+                                            .               +Inf        9.66667    -196.00000   1.66085e+06 c_u_transportation_limit_t(1_Tehran)_
+
+    35 B(Main_Isfahan)
+                    BS      14.11515    -230.00000        .            12.56364    -234.00000   1.66076e+06 c_u_transportation_limit_t(1_Tehran)_
+                                            .               +Inf       17.23030    -226.00000   1.66087e+06 c_u_transportation_limit_t(1_Isfahan)_
+
+    36 G(Tehran_Mashhad)
+                    BS       3.00000    -110.00000        .             2.23037  -20418.00000   1.59989e+06 l(Tehran_Mashhad)
+                                            .               +Inf        3.00000          +Inf          +Inf
+
+    37 G(Tehran_Kerman)
+                    BS       6.00000     -85.00000        .             5.23037  -19418.00000   1.54482e+06 l(Tehran_Kerman)
+                                            .               +Inf        6.00000          +Inf          +Inf
+
+    38 G(Tehran_Ahvaz)
+                    BS      10.00000    -120.00000        .             9.23037  -23418.00000   1.42783e+06 l(Tehran_Ahvaz)
+                                            .               +Inf       10.00000          +Inf          +Inf
+
+    39 G(Tehran_Tabriz)
+                    BS       5.00000    -100.00000        .             4.56364  -18418.00000   1.56922e+06 l(Tehran_Tabriz)
+                                            .               +Inf        5.00000          +Inf          +Inf
+
+    40 G(Isfahan_Mashhad)
+                    BS       4.00000    -100.00000        .             3.56364  -20600.00000   1.57881e+06 l(Isfahan_Mashhad)
+                                            .               +Inf        4.00000          +Inf          +Inf
+
+GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  16
+
+Problem:    
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
     41 G(Isfahan_Kerman)
-                    BS       5.00000    -100.00000        .             4.76229  -16997.60000   1.35516e+06 l(Isfahan_Kerman)
+                    BS       5.00000    -100.00000        .             4.23037  -19600.00000   1.56331e+06 l(Isfahan_Kerman)
                                             .               +Inf        5.00000          +Inf          +Inf
 
     42 G(Isfahan_Ahvaz)
-                    BS       5.00000    -110.00000        .             5.00000  -11997.60000   1.38021e+06 l(Isfahan_Ahvaz)
+                    BS       5.00000    -110.00000        .             4.23037  -23600.00000   1.54336e+06 l(Isfahan_Ahvaz)
                                             .               +Inf        5.00000          +Inf          +Inf
 
     43 G(Isfahan_Tabriz)
-                    BS      10.00000     -90.00000        .             9.76229  -12997.60000   1.31057e+06 l(Isfahan_Tabriz)
+                    BS      10.00000     -90.00000        .             9.56364  -18600.00000   1.47571e+06 l(Isfahan_Tabriz)
                                             .               +Inf       10.00000          +Inf          +Inf
 
-    44 U(A)         BS    1101.81818        .             .           975.18906    -342.89209   1.06184e+06 c_u_Max_extracted_ore_limit(3)_
-                                            .               +Inf     1101.81818          +Inf          +Inf
+    44 R(A_1)       BS        .           18.75000        .                -Inf        .        1.66081e+06 c_u_discount_limit_3(1_A)_
+                                            .               +Inf       43.63636      61.00000   1.66081e+06 t(A_1_Tehran)
 
-    45 Z(1_A)       BS     140.00000        .             .           122.26263        .        1.43964e+06 c_u_Metal_sum_limit_Z(1)_
+    45 R(A_2)       BS        .           19.50000        .              .             .00006   1.66081e+06 c_u_discount_limit_3(2_A)_
+                                            .               +Inf         .           57.00000   1.66081e+06 t(A_2_Isfahan)
+
+    46 R(B_1)       BS    2576.96970      26.00000        .          2576.96970       6.86000   1.61149e+06 c_u_discount_limit_4(2)_
+                                            .               +Inf     2647.11111     251.42714   2.24173e+06 c_u_Max_extracted_ore_limit(3)_
+
+    47 R(B_2)       BS        .           27.00000        .              .             .00014   1.66081e+06 c_u_discount_limit_3(2_B)_
+                                            .               +Inf         .           46.14000   1.66081e+06 c_u_discount_limit_4(2)_
+
+    48 U(A)         BS    1556.36364        .             .          1500.00000    -280.53156    1.2242e+06 c_u_Max_extracted_ore_limit(3)_
+                                            .               +Inf     1556.36364          +Inf          +Inf
+
+    49 Z(1_A)       BS     140.00000        .             .          -436.96970        .        1.66081e+06 c_u_Metal_sum_limit_Z(1)_
                                             .               +Inf      140.00000          +Inf          +Inf
 
-    46 Z(2_A)       BS     132.26263        .             .           -42.62626        .        1.43964e+06 Z(3_A)
-                                            .               +Inf      150.00000        .        1.43964e+06 c_u_Metal_sum_limit_Z(1)_
-
-    47 Z(3_A)       NL        .             .             .           -17.73737          -Inf   1.43964e+06 c_u_Metal_sum_limit_Z(2)_
-                                            .               +Inf      132.26263        .        1.43964e+06 Z(2_A)
-
-    48 C(1_A)       NL        .             .             .           -26.44444          -Inf   1.43964e+06 C(2_B)
-                                            .               +Inf      168.00000        .        1.43964e+06 C(1_B)
-
-    49 C(2_A)       BS     223.55556        .             .            55.55556        .        1.43964e+06 C(1_A)
-                                            .               +Inf      245.55556        .        1.43964e+06 C(3_B)
-
-    50 C(3_A)       NL        .             .             .           -17.73737          -Inf   1.43964e+06 c_u_Metal_sum_limit_Z(2)_
-                                            .               +Inf       22.00000        .        1.43964e+06 c_u_Metal_sum_limit_C(3)_
-
-GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  16
-
-Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
-
-   No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
-                                          Marginal   Upper bound          range         range   break point variable
------- ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
-    51 A(1_A)       BS     196.00000        .             .            34.34568    -672.40727   1.30785e+06 c_u_Metal_sum_limit_A(1)_
-                                            .               +Inf      196.00000          +Inf          +Inf
-
-    52 A(2_A)       BS     300.00000        .             .           138.34568    -672.40727   1.23792e+06 c_u_Metal_sum_limit_A(2)_
-                                            .               +Inf      300.00000          +Inf          +Inf
-
-    53 A(3_A)       BS     110.00000        .             .            40.35398    -623.44016   1.37107e+06 c_u_Max_extracted_ore_limit(3)_
-                                            .               +Inf      110.00000          +Inf          +Inf
-
-    54 F(1_A)       NL        .             .             .              .               -Inf   1.43964e+06 c_u_Metal_in_alloy_limit_A_F_f_
-                                       -1155.16444          +Inf       28.00000    1155.16444    1.4073e+06 F(1_B)
-
-    55 F(2_A)       NL        .             .             .              .               -Inf   1.43964e+06 c_u_Metal_in_alloy_limit_A_F_f_
-                                       -1155.16444          +Inf       34.00000    1155.16444   1.40037e+06 C(2_B)
-
-    56 F(3_A)       NL        .             .             .              .               -Inf   1.43964e+06 c_u_Metal_in_alloy_limit_A_F_f_
-                                       -1155.16444          +Inf       22.00000    1155.16444   1.41423e+06 F(3_B)
-
-    57 U(B)         BS     555.55556        .             .           493.33333    -519.82400   1.15085e+06 F(1_A)
-                                            .               +Inf      555.55556          +Inf          +Inf
-
-    58 Z(1_B)       NL        .             .             .          -132.26263          -Inf   1.43964e+06 Z(2_A)
-                                            .               +Inf       17.73737        .        1.43964e+06 c_u_Metal_sum_limit_Z(2)_
-
-    59 Z(2_B)       NL        .             .             .          -174.88889          -Inf   1.43964e+06 c_u_Metal_sum_limit_Z(3)_
-                                            .               +Inf       17.73737        .        1.43964e+06 c_u_Metal_sum_limit_Z(2)_
-
-    60 Z(3_B)       BS     111.11111        .             .            93.37374        .        1.43964e+06 Z(1_B)
-                                            .               +Inf      286.00000        .        1.43964e+06 c_u_Alloy_sum_limit(B)_
+    50 Z(2_A)       BS     150.00000        .             .            16.66667        .        1.66081e+06 Z(2_B)
+                                            .               +Inf      150.00000          +Inf          +Inf
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  17
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
-    61 C(1_B)       BS     168.00000        .             .           -55.55556        .        1.43964e+06 C(1_A)
+    51 Z(3_A)       BS     225.69697        .             .           153.69697        .        1.66081e+06 C(3_A)
+                                            .               +Inf      365.69697        .        1.66081e+06 c_u_Metal_sum_limit_Z(1)_
+
+    52 C(1_A)       BS     168.00000        .             .           -65.33333        .        1.66081e+06 C(1_B)
                                             .               +Inf      168.00000          +Inf          +Inf
 
-    62 C(2_B)       BS      26.44444        .             .             4.44444        .        1.43964e+06 C(3_B)
-                                            .               +Inf      194.44444        .        1.43964e+06 C(1_A)
+    53 C(2_A)       BS      16.66667        .             .          -168.00000        .        1.66081e+06 c_u_Metal_sum_limit_C(2)_
+                                            .               +Inf      184.66667        .        1.66081e+06 C(1_B)
 
-    63 C(3_B)       NL        .             .             .           -17.73737          -Inf   1.43964e+06 c_u_Metal_sum_limit_Z(2)_
-                                            .               +Inf       22.00000        .        1.43964e+06 c_u_Metal_sum_limit_C(3)_
+    54 C(3_A)       NL        .             .             .          -184.66667          -Inf   1.66081e+06 c_u_Metal_in_alloy_limit_A_C_f_
+                                            .               +Inf       72.00000        .        1.66081e+06 c_u_Metal_sum_limit_C(3)_
 
-    64 A(1_B)       NL        .             .             .              .               -Inf   1.43964e+06 c_u_Metal_in_alloy_limit_B_A_f_
-                                        -672.40727          +Inf      111.11111     672.40727   1.36493e+06 c_u_Metal_in_alloy_limit_B_Z_f_
+    55 A(1_A)       BS     196.00000        .             .           165.00000    -570.58182   1.54898e+06 A(1_B)
+                                            .               +Inf      196.00000          +Inf          +Inf
 
-    65 A(2_B)       NL        .             .             .              .               -Inf   1.43964e+06 c_u_Metal_in_alloy_limit_B_A_f_
-                                        -672.40727          +Inf      111.11111     672.40727   1.36493e+06 c_u_Metal_in_alloy_limit_B_Z_f_
+    56 A(2_A)       BS     300.00000        .             .           269.00000    -570.58182   1.48964e+06 A(2_B)
+                                            .               +Inf      300.00000          +Inf          +Inf
 
-    66 A(3_B)       NL        .             .             .              .               -Inf   1.43964e+06 c_u_Metal_in_alloy_limit_B_A_f_
-                                        -672.40727          +Inf      110.00000     672.40727   1.36568e+06 A(3_A)
+    57 A(3_A)       BS     360.00000        .             .           329.00000    -510.05737   1.47719e+06 c_u_Max_extracted_ore_limit(3)_
+                                            .               +Inf      360.00000          +Inf          +Inf
 
-    67 F(1_B)       BS      28.00000        .             .            -6.00000   -1155.16444    1.4073e+06 F(1_A)
-                                            .               +Inf       28.00000          +Inf          +Inf
+    58 F(1_A)       NL        .             .             .              .               -Inf   1.66081e+06 c_u_Metal_in_alloy_limit_A_F_f_
+                                       -1097.37778          +Inf       28.00000    1097.37778   1.63009e+06 F(1_B)
 
-    68 F(2_B)       BS     200.00000        .             .           166.00000   -1155.16444   1.20861e+06 F(2_A)
-                                            .               +Inf      200.00000          +Inf          +Inf
+    59 F(2_A)       NL        .             .             .              .               -Inf   1.66081e+06 c_u_Metal_in_alloy_limit_A_F_f_
+                                       -1097.37778          +Inf      126.95455    1097.37778    1.5215e+06 Z(3_A)
 
-    69 F(3_B)       BS      22.00000        .             .           -12.00000   -1155.16444   1.41423e+06 F(3_A)
-                                            .               +Inf       22.00000          +Inf          +Inf
-
-    70 t(A_Main_Tehran)
-                    BS     542.94949        .             .           514.42424        .        1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
-                                            .               +Inf      700.00000        .04000   1.43967e+06 c_u_buy_from_fac_limit_t(1)_
+    60 F(3_A)       NL        .             .             .              .               -Inf   1.66081e+06 c_u_Metal_in_alloy_limit_A_F_f_
+                                       -1097.37778          +Inf       72.00000    1097.37778    1.5818e+06 F(3_B)
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  18
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
-    71 t(A_Main_Isfahan)
-                    BS     558.86869        .             .           401.81818       -.04000   1.43962e+06 c_u_buy_from_fac_limit_t(1)_
-                                            .               +Inf      587.39394        .        1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
+    61 U(B)         BS     666.66667        .             .           604.44444    -493.82000    1.3316e+06 F(1_A)
+                                            .               +Inf      666.66667          +Inf          +Inf
 
-    72 t(B_Main_Tehran)
-                    NL        .             .             .          -157.05051          -Inf   1.43964e+06 g(A_Isfahan_Tabriz)
-                                            .               +Inf      242.94949        .        1.43964e+06 g(A_Tehran_Tabriz)
+    62 Z(1_B)       NL        .             .             .          -225.69697          -Inf   1.66081e+06 Z(3_A)
+                                            .               +Inf      133.33333        .        1.66081e+06 Z(3_B)
 
-    73 t(B_Main_Isfahan)
-                    BS     555.55556        .             .           312.60606        .        1.43964e+06 t(B_Main_Tehran)
-                                            .               +Inf      555.55556          +Inf          +Inf
+    63 Z(2_B)       NL        .             .             .          -225.69697          -Inf   1.66081e+06 Z(3_A)
+                                            .               +Inf      133.33333        .        1.66081e+06 Z(3_B)
 
-    74 h(Main)      BS        .55721        .             .              .47869     -80.00000    1.4396e+06 c_u_buy_from_fac_limit_t(1)_
-                                            .            1.00000         .57147        .        1.43964e+06 c_u_transportation_limit_t(1_Isfahan)_
+    64 Z(3_B)       BS     133.33333        .             .            -6.66667        .        1.66081e+06 Z(1_B)
+                                            .               +Inf      666.66667        .        1.66081e+06 c_u_Alloy_sum_limit(B)_
 
-    75 l(Tehran_Mashhad)
-                    NU       1.00000        .             .              .67273  -44122.80000    1.4252e+06 g(B_Isfahan_Kerman)
-                                       44122.80000       1.00000        2.00000          +Inf   1.48377e+06 c_u_max_market_demand_limit(Mashhad_A)_
+    65 C(1_B)       NL        .             .             .           -16.66667          -Inf   1.66081e+06 C(2_A)
+                                            .               +Inf      168.00000        .        1.66081e+06 C(1_A)
 
-    76 l(Tehran_Kerman)
-                    NU       1.00000        .             .              .76229 -100395.60000   1.41578e+06 c_u_transportation_limit_t(1_Tehran)_
-                                      100395.60000       1.00000        1.43625          +Inf   1.48344e+06 g(A_Isfahan_Tabriz)
+    66 C(2_B)       BS     233.33333        .             .            65.33333        .        1.66081e+06 C(1_B)
+                                            .               +Inf      250.00000        .        1.66081e+06 c_u_Metal_in_alloy_limit_B_C_f_
 
-    77 l(Tehran_Ahvaz)
-                    NU       1.00000        .             .             1.00000 -116976.00000   1.43964e+06 g(A_Isfahan_Ahvaz)
-                                      116976.00000       1.00000        1.26175          +Inf   1.47026e+06 g(A_Isfahan_Tabriz)
+    67 C(3_B)       NL        .             .             .           -16.66667          -Inf   1.66081e+06 C(2_A)
+                                            .               +Inf       72.00000        .        1.66081e+06 c_u_Metal_sum_limit_C(3)_
 
-    78 l(Tehran_Tabriz)
-                    NU       1.00000        .             .              .80364  -63588.00000   1.42716e+06 g(B_Isfahan_Kerman)
-                                       63588.00000       1.00000        1.80364          +Inf   1.49075e+06 g(A_Isfahan_Kerman)
+    68 A(1_B)       NL        .             .             .              .               -Inf   1.66081e+06 c_u_Metal_in_alloy_limit_B_A_f_
+                                        -570.58182          +Inf       31.00000     570.58182   1.64313e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
-    79 l(Isfahan_Mashhad)
-                    NU       1.00000        .             .              .94057  -59590.40000    1.4361e+06 c_u_transportation_limit_t(1_Tehran)_
-                                       59590.40000       1.00000        1.00000          +Inf   1.43964e+06 g(B_Tehran_Mashhad)
+    69 A(2_B)       NL        .             .             .              .               -Inf   1.66081e+06 c_u_Metal_in_alloy_limit_B_A_f_
+                                        -570.58182          +Inf       31.00000     570.58182   1.64313e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
-    80 l(Isfahan_Kerman)
-                    NU       1.00000        .             .              .95246  -84488.00000   1.43563e+06 c_u_transportation_limit_t(1_Tehran)_
-                                       84488.00000       1.00000        1.52350          +Inf   1.48387e+06 g(A_Isfahan_Tabriz)
+    70 A(3_B)       NL        .             .             .              .               -Inf   1.66081e+06 c_u_Metal_in_alloy_limit_B_A_f_
+                                        -570.58182          +Inf       31.00000     570.58182   1.64313e+06 c_u_max_market_demand_limit(Mashhad_B)_
 
 GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  19
 
 Problem:    
-Objective:  revenue = 1439644.718 (MAXimum)
+Objective:  revenue = 1660813.37 (MAXimum)
 
    No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
                                           Marginal   Upper bound          range         range   break point variable
 ------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
-    81 l(Isfahan_Ahvaz)
-                    NU       1.00000        .             .             1.00000  -59438.00000   1.43964e+06 g(A_Isfahan_Ahvaz)
-                                       59438.00000       1.00000        1.52350          +Inf   1.47076e+06 g(A_Isfahan_Tabriz)
+    71 F(1_B)       BS      28.00000        .             .           -98.95455   -1097.37778   1.63009e+06 F(1_A)
+                                            .               +Inf       28.00000          +Inf          +Inf
 
-    82 l(Isfahan_Tabriz)
-                    NU       1.00000        .             .              .97623 -129076.00000   1.43658e+06 c_u_transportation_limit_t(1_Tehran)_
-                                      129076.00000       1.00000        1.40182          +Inf   1.49151e+06 g(A_Isfahan_Kerman)
+    72 F(2_B)       BS     200.00000        .             .            73.04545   -1097.37778   1.44134e+06 F(2_A)
+                                            .               +Inf      200.00000          +Inf          +Inf
+
+    73 F(3_B)       BS      72.00000        .             .           -54.95455   -1097.37778    1.5818e+06 F(3_A)
+                                            .               +Inf       72.00000          +Inf          +Inf
+
+    74 t(A_Main_Tehran)
+                    BS     300.00000        .             .           256.36364     -30.00000   1.65181e+06 c_u_max_market_demand_limit(Kerman_A)_
+                                            .               +Inf      600.00000        .        1.66081e+06 g(A_Tehran_Mashhad)
+
+    75 t(A_Main_Isfahan)
+                    BS    1256.36364        .             .           956.36364        .        1.66081e+06 g(A_Tehran_Mashhad)
+                                            .               +Inf     1300.00000      30.00000    1.6985e+06 c_u_max_market_demand_limit(Kerman_A)_
+
+    76 t(B_Main_Tehran)
+                    BS     511.51515        .             .           211.51515        .        1.66081e+06 g(A_Tehran_Mashhad)
+                                            .               +Inf      666.66667        .04000   1.66083e+06 c_u_transportation_limit_t(1_Tehran)_
+
+    77 t(B_Main_Isfahan)
+                    BS     155.15152        .             .          -639.09091       -.04000   1.66081e+06 c_u_transportation_limit_t(1_Tehran)_
+                                            .               +Inf      455.15152        .        1.66081e+06 g(A_Tehran_Mashhad)
+
+    78 h(Main)      NU       1.00000        .             .              .70576        .        1.66081e+06 c_u_transportation_limit_t(Main_Isfahan)_
+                                            .            1.00000        1.62303          +Inf   1.66081e+06 c_u_transportation_limit_f(Main_Tehran)_
+
+    79 l(Tehran_Mashhad)
+                    NU       1.00000        .             .              .74346  -60924.00000   1.64518e+06 c_u_discount_limit_4(1)_
+                                       60924.00000       1.00000        1.18788          +Inf   1.67226e+06 c_u_max_market_demand_limit(Mashhad_B)_
+
+    80 l(Tehran_Kerman)
+                    NU       1.00000        .             .              .87173 -115998.00000   1.64593e+06 c_u_discount_limit_4(1)_
+                                      115998.00000       1.00000        1.51717          +Inf    1.7208e+06 t(B_Main_Isfahan)
+
+GLPK 5.0  - SENSITIVITY ANALYSIS REPORT                                                                         Page  20
+
+Problem:    
+Objective:  revenue = 1660813.37 (MAXimum)
+
+   No. Column name  St      Activity      Obj coef   Lower bound       Activity      Obj coef  Obj value at Limiting
+                                          Marginal   Upper bound          range         range   break point variable
+------ ------------ -- ------------- ------------- -------------  ------------- ------------- ------------- ------------
+    81 l(Tehran_Ahvaz)
+                    NU       1.00000        .             .              .92304 -232980.00000   1.64288e+06 c_u_discount_limit_4(1)_
+                                      232980.00000       1.00000        1.00000          +Inf   1.66081e+06 c_u_max_market_demand_limit(Ahvaz_B)_
+
+    82 l(Tehran_Tabriz)
+                    NU       1.00000        .             .              .91273  -91590.00000   1.65282e+06 g(B_Isfahan_Mashhad)
+                                       91590.00000       1.00000        1.11273          +Inf   1.67114e+06 c_u_max_market_demand_limit(Mashhad_B)_
+
+    83 l(Isfahan_Mashhad)
+                    NU       1.00000        .             .              .89091  -82000.00000   1.65187e+06 g(B_Isfahan_Mashhad)
+                                       82000.00000       1.00000        1.14091          +Inf   1.67237e+06 c_u_max_market_demand_limit(Mashhad_B)_
+
+    84 l(Isfahan_Kerman)
+                    NU       1.00000        .             .              .84607  -97500.00000   1.64581e+06 c_u_discount_limit_4(1)_
+                                       97500.00000       1.00000        1.14101          +Inf   1.67456e+06 c_u_buy_from_fac_limit_t(1)_
+
+    85 l(Isfahan_Ahvaz)
+                    NU       1.00000        .             .              .84607 -117450.00000   1.64273e+06 c_u_discount_limit_4(1)_
+                                      117450.00000       1.00000        1.00000          +Inf   1.66081e+06 c_u_max_market_demand_limit(Ahvaz_B)_
+
+    86 l(Isfahan_Tabriz)
+                    NU       1.00000        .             .              .95636 -185100.00000   1.65274e+06 g(B_Isfahan_Mashhad)
+                                      185100.00000       1.00000        1.05636          +Inf   1.67125e+06 c_u_max_market_demand_limit(Mashhad_B)_
+
+    87 d(1)         BS        .03079        .             .              .03079  -47849.99991   1.65934e+06 c_u_discount_limit_4(2)_
+                                            .            1.00000        1.03079        .        1.66081e+06 c_u_discount_limit_1(1)_
+
+    88 d(2)         BS        .             .             .              .       -1.94999e+10   1.66081e+06 c_u_discount_limit_3(2_A)_
+                                            .            1.00000         .        57419.99989   1.66081e+06 c_u_discount_limit_4(2)_
 
 End of report
