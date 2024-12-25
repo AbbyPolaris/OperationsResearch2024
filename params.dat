@@ -12,7 +12,7 @@ param: Depots:         depots_min_to_receive  depots_Max_to_receive :=
        Isfahan         30                     70   ;
 
 param container_cap:= 100;
-
+param Price_of_ore_to_alloy := 0;
 set Markets:=
        Mashhad 
        Kerman 

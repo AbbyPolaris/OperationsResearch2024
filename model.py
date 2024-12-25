@@ -18,24 +18,25 @@ discount_percentage = 0.05
 model.min_buy_fac = Param(model.Factories,within=NonNegativeReals, default=0.0)
 model.max_buy_fac = Param(model.Factories,within=NonNegativeReals, default=infinity)
 model.discount_margin = Param(model.Factories, within=NonNegativeReals, default=infinity)
-model.contract_cost = Param(model.Factories,within= NonNegativeReals)
+model.contract_cost = Param(model.Factories,within= NonNegativeReals, mutable=True)
 model.A_comb_min = Param(model.Metals, within=NonNegativeReals, default=0.0)
 model.A_comb_max = Param(model.Metals, within=NonNegativeReals, default=infinity)
 model.B_comb_min = Param(model.Metals, within=NonNegativeReals, default=0.0)
 model.B_comb_max = Param(model.Metals, within=NonNegativeReals, default=infinity)
 model.price_of_alloy_fac = Param(model.Factories, model.Alloys, within=NonNegativeReals,mutable=True)
+model.Price_of_ore_to_alloy= Param(within=NonNegativeReals,mutable=True)
 model.Max_ore = Param(model.Ore,within=NonNegativeReals, mutable = True)
 model.Ore_cost = Param(model.Ore,within=NonNegativeReals, mutable=True)
 model.Ore_combination = Param(model.Ore, model.Metals, within=NonNegativeReals)
-model.container_cap = Param(within= NonNegativeIntegers)
+model.container_cap = Param(within= NonNegativeIntegers, mutable=True)
 model.Container_min_to_be_sent_depot = Param(model.Factories, model.Depots, within=NonNegativeIntegers)
 model.Container_Max_to_be_sent_depot = Param(model.Factories, model.Depots, within=NonNegativeIntegers)
-model.Container_cost_to_be_sent_depot = Param(model.Factories, model.Depots , within=NonNegativeReals)
-model.depots_min_to_receive = Param(model.Depots, within=NonNegativeIntegers)
+model.Container_cost_to_be_sent_depot = Param(model.Factories, model.Depots , within=NonNegativeReals, mutable=True)
+model.depots_min_to_receive = Param(model.Depots, within=NonNegativeIntegers, mutable=True)
 model.depots_Max_to_receive = Param(model.Depots, within=NonNegativeIntegers)
 model.Container_min_to_be_sent_market = Param(model.Depots, model.Markets, within= NonNegativeIntegers)
 model.Container_Max_to_be_sent_market = Param(model.Depots, model.Markets, within= NonNegativeIntegers)
-model.Container_cost_to_be_sent_market = Param(model.Depots ,model.Markets, within= NonNegativeReals)
+model.Container_cost_to_be_sent_market = Param(model.Depots ,model.Markets, within= NonNegativeReals, mutable=True)
 model.Max_market_demand = Param(model.Markets,model.Alloys, within= NonNegativeReals)
 model.Market_price = Param(model.Markets , model.Alloys , within= NonNegativeReals)
 
@@ -224,6 +225,7 @@ model.max_market_demand_limit = Constraint(model.Markets, model.Alloys, rule= ma
 def revenue_rule_no_discount(model):
     return sum(sum(model.Market_price[m,j]*sum(model.g[j,k,m] for k in model.Depots) for j in model.Alloys) for m in model.Markets)-\
            sum(model.Extracted_ore[i]*model.Ore_cost[i] for i in model.Ore)-\
+           sum(model.U[u]*model.Price_of_ore_to_alloy for u in model.Alloys)-\
            sum(sum(model.price_of_alloy_fac[u,j]*sum(model.t[j,u,k] for k in model.Depots) for j in model.Alloys) for u in model.Factories)-\
            sum(model.h[u]*model.contract_cost[u] for u in model.Factories)-\
            sum(sum(model.Container_cost_to_be_sent_depot[i,j]*model.B[i,j] for j in model.Depots) for i in model.Factories)-\

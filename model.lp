@@ -415,7 +415,7 @@ r_l_transportation_limit2(Tehran)_:
 +1 B(1_Tehran)
 +1 B(2_Tehran)
 +1 B(Main_Tehran)
->= 20
+>= 20.0
 
 r_u_transportation_limit2(Tehran)_:
 +1 B(1_Tehran)
@@ -427,7 +427,7 @@ r_l_transportation_limit2(Isfahan)_:
 +1 B(1_Isfahan)
 +1 B(2_Isfahan)
 +1 B(Main_Isfahan)
->= 30
+>= 30.0
 
 r_u_transportation_limit2(Isfahan)_:
 +1 B(1_Isfahan)
