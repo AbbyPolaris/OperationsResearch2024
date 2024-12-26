@@ -40,7 +40,7 @@ if __name__ == "__main__":
     instance = model.create_instance(data=data) 
     instance.write('model.lp', io_options={'symbolic_solver_labels': True})
     solver = SolverFactory('glpk')
-    
+    reserved_dmtrTehran = 20
     def g():
         price_of_alloy_fac_2_alloy_b_set = np.arange(0,(instance.price_of_alloy_fac[2,'B']())*3,1)#for c
         max_ore_2_set = np.arange(0,(instance.Max_ore[2]()),100)#for b
@@ -89,7 +89,7 @@ if __name__ == "__main__":
     if problem_number == '-Line71':
         Line71()
 
-    def Line92():
+    def Line92_a():
         depot_Tehran_min_to_recieve_change_list = []
         revenue_depend_on_tehran_min_to_recieve = []
 
@@ -98,7 +98,6 @@ if __name__ == "__main__":
             solver.solve(instance)
             revenue = instance.revenue()
             print(f"Tehran minimum receive: {capacity}, Revenue {instance.revenue()}, buy from Fac2: {instance.h[2]()}") 
-            #print(new_capacity)
             revenue_depend_on_tehran_min_to_recieve.append(revenue)
             depot_Tehran_min_to_recieve_change_list.append(capacity)
         depot_Tehran_min_to_recieve_change_np = np.array(depot_Tehran_min_to_recieve_change_list)
@@ -109,8 +108,29 @@ if __name__ == "__main__":
         plt.plot(depot_Tehran_min_to_recieve_change_np, revenue_depend_on_tehran_max_to_recieve_np)
         plt.show()
 
+    def Line92_b():
+        container_caps = []
+        revenue_depend_on_container_cap = []
+        instance.depots_min_to_receive['Tehran'] = reserved_dmtrTehran
+        for capacity in range(100,250,5):
+            instance.container_cap = capacity
+            solver.solve(instance)
+            revenue = instance.revenue()
+            print(f"Container capacity: {capacity}, Revenue {instance.revenue()}") 
+            container_caps.append(capacity)
+            revenue_depend_on_container_cap.append(revenue)
+        caps_np_array = np.array(container_caps)
+        revenues_np_array = np.array(revenue_depend_on_container_cap)
+        #TODO
+        plt.xlabel("correct here")
+        plt.ylabel("correct here")
+        plt.plot(caps_np_array, revenues_np_array)
+        plt.show()
+
+
     if problem_number == '-Line92':
-        Line92()
+        Line92_a()
+        Line92_b()
 
     def Line62():
         instance.Price_of_ore_to_alloy = 0
@@ -136,10 +156,11 @@ if __name__ == "__main__":
         results = solver.solve(instance)
         print(results)
         instance.display()
-    file_name = 'results.yaml'
+    result_file_name = 'results.yaml'
     try:
-        results.write(filename=file_name,format='yaml')
-        print(f"results saved in {file_name}")
+        results.write(filename=result_file_name,format='yaml')
+        print(f"results saved in {result_file_name}")
     except Exception as e:
-        print(e)
+        print(f"no results saved.")
+
 
