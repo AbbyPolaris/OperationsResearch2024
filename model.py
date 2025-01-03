@@ -14,7 +14,7 @@ M = 999999999
 epsilon = 1e-9
 discount_percentage = 0.05
 
-#model parameters
+#model parametersdigital firs
 model.min_buy_fac = Param(model.Factories,within=NonNegativeReals, default=0.0)
 model.max_buy_fac = Param(model.Factories,within=NonNegativeReals, default=infinity)
 model.discount_margin = Param(model.Factories, within=NonNegativeReals, default=infinity)
@@ -251,6 +251,7 @@ def discount_rule_4(model,u):
 def revenue_rule_discount_added(model):
     return sum(sum(model.Market_price[m,j]*sum(model.g[j,k,m] for k in model.Depots) for j in model.Alloys) for m in model.Markets)-\
            sum(model.Extracted_ore[i]*model.Ore_cost[i] for i in model.Ore)-\
+           sum(model.U[u]*model.Price_of_ore_to_alloy for u in model.Alloys)-\
            sum(sum(model.price_of_alloy_fac[u,j]*sum(model.t[j,u,k] for k in model.Depots) for j in model.Alloys) for u in model.Factories)-\
            sum(model.h[u]*model.contract_cost[u] for u in model.Factories)-\
            sum(sum(model.Container_cost_to_be_sent_depot[i,j]*model.B[i,j] for j in model.Depots) for i in model.Factories)-\

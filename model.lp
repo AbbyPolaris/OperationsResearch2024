@@ -21,12 +21,14 @@ revenue:
 -45 Extracted_ore(1)
 -65 Extracted_ore(2)
 -70 Extracted_ore(3)
+-250 U(A)
+-250 U(B)
 -375 t(A_1_Tehran)
 -375 t(A_1_Isfahan)
 -390 t(A_2_Tehran)
 -390 t(A_2_Isfahan)
--520 t(B_1_Tehran)
--520 t(B_1_Isfahan)
+-530 t(B_1_Tehran)
+-530 t(B_1_Isfahan)
 -540 t(B_2_Tehran)
 -540 t(B_2_Isfahan)
 -120 h(1)
@@ -45,6 +47,10 @@ revenue:
 -100 G(Isfahan_Kerman)
 -110 G(Isfahan_Ahvaz)
 -90 G(Isfahan_Tabriz)
++18.75 R(A_1)
++19.5 R(A_2)
++26.5 R(B_1)
++27.0 R(B_2)
 
 s.t.
 
@@ -272,15 +278,15 @@ c_u_Metal_in_alloy_limit_B_F_t_:
 <= 0
 
 c_u_Export_from_main_fac_limit(A)_:
+-1 U(A)
 +1 t(A_Main_Tehran)
 +1 t(A_Main_Isfahan)
--1 U(A)
 <= 0
 
 c_u_Export_from_main_fac_limit(B)_:
+-1 U(B)
 +1 t(B_Main_Tehran)
 +1 t(B_Main_Isfahan)
--1 U(B)
 <= 0
 
 c_u_buy_from_fac_limit_f(1)_:
@@ -643,6 +649,74 @@ c_u_max_market_demand_limit(Tabriz_B)_:
 +1 g(B_Isfahan_Tabriz)
 <= 1100
 
+c_u_discount_limit_1(1)_:
++1 t(A_1_Tehran)
++1 t(A_1_Isfahan)
++1 t(B_1_Tehran)
++1 t(B_1_Isfahan)
+-2500 d(1)
+<= 2499.999999999
+
+c_u_discount_limit_1(2)_:
++1 t(A_2_Tehran)
++1 t(A_2_Isfahan)
++1 t(B_2_Tehran)
++1 t(B_2_Isfahan)
+-3000 d(2)
+<= 2999.999999999
+
+c_u_discount_limit_2(1)_:
+-1 t(A_1_Tehran)
+-1 t(A_1_Isfahan)
+-1 t(B_1_Tehran)
+-1 t(B_1_Isfahan)
++2500 d(1)
+<= 0
+
+c_u_discount_limit_2(2)_:
+-1 t(A_2_Tehran)
+-1 t(A_2_Isfahan)
+-1 t(B_2_Tehran)
+-1 t(B_2_Isfahan)
++3000 d(2)
+<= 0
+
+c_u_discount_limit_3(1_A)_:
+-1 t(A_1_Tehran)
+-1 t(A_1_Isfahan)
++1 R(A_1)
+<= 0
+
+c_u_discount_limit_3(1_B)_:
+-1 t(B_1_Tehran)
+-1 t(B_1_Isfahan)
++1 R(B_1)
+<= 0
+
+c_u_discount_limit_3(2_A)_:
+-1 t(A_2_Tehran)
+-1 t(A_2_Isfahan)
++1 R(A_2)
+<= 0
+
+c_u_discount_limit_3(2_B)_:
+-1 t(B_2_Tehran)
+-1 t(B_2_Isfahan)
++1 R(B_2)
+<= 0
+
+c_u_discount_limit_4(1)_:
++1 R(A_1)
++1 R(B_1)
+-999999999 d(1)
+<= 0
+
+c_u_discount_limit_4(2)_:
++1 R(A_2)
++1 R(B_2)
+-999999999 d(2)
+<= 0
+
 bounds
    0 <= g(A_Tehran_Mashhad) <= +inf
    0 <= g(A_Tehran_Kerman) <= +inf
@@ -663,6 +737,8 @@ bounds
    0 <= Extracted_ore(1) <= +inf
    0 <= Extracted_ore(2) <= +inf
    0 <= Extracted_ore(3) <= +inf
+   0 <= U(A) <= +inf
+   0 <= U(B) <= +inf
    0 <= t(A_1_Tehran) <= +inf
    0 <= t(A_1_Isfahan) <= +inf
    0 <= t(A_2_Tehran) <= +inf
@@ -692,8 +768,10 @@ bounds
    0 <= G(Isfahan_Kerman) <= +inf
    0 <= G(Isfahan_Ahvaz) <= +inf
    0 <= G(Isfahan_Tabriz) <= +inf
-   0 <= U(A) <= +inf
-   0 <= U(B) <= +inf
+   0 <= R(A_1) <= +inf
+   0 <= R(A_2) <= +inf
+   0 <= R(B_1) <= +inf
+   0 <= R(B_2) <= +inf
    0 <= Z(1_A) <= +inf
    0 <= Z(1_B) <= +inf
    0 <= Z(2_A) <= +inf
@@ -726,6 +804,8 @@ bounds
    0 <= l(Isfahan_Kerman) <= 1
    0 <= l(Isfahan_Ahvaz) <= 1
    0 <= l(Isfahan_Tabriz) <= 1
+   0 <= d(1) <= 1
+   0 <= d(2) <= 1
 general
   B(1_Tehran)
   B(1_Isfahan)
@@ -753,4 +833,6 @@ binary
   l(Isfahan_Kerman)
   l(Isfahan_Ahvaz)
   l(Isfahan_Tabriz)
+  d(1)
+  d(2)
 end

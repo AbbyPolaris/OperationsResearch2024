@@ -12,7 +12,7 @@ param: Depots:         depots_min_to_receive  depots_Max_to_receive :=
        Isfahan         30                     70   ;
 
 param container_cap:= 100;
-param Price_of_ore_to_alloy := 0;
+param Price_of_ore_to_alloy := 250;
 set Markets:=
        Mashhad 
        Kerman 
@@ -92,7 +92,7 @@ param Market_price:
 
 param price_of_alloy_fac:
                      A      B :=
-       1             375    520
+       1             375    530
        2             390    540
        Main          0      0      ;
 
