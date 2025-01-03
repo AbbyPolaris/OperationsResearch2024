@@ -56,7 +56,7 @@ if __name__ == "__main__":
 
     def e():
         instance.Price_of_ore_to_alloy = 0
-        for cost in range(900, 1050):
+        for cost in range(1100, 1300):
             instance.contract_cost[1] = 100 * cost
             solver.solve(instance)
             print(f"Fac1 contract cost: {instance.contract_cost[1]()}, Buy from Fac1: {instance.h[1]()}, Buy from Fac2: {instance.h[2]()}")
@@ -132,6 +132,130 @@ if __name__ == "__main__":
         g_2()
         g_3()
         
+
+    def h():
+        # Increase all prices
+        instance = model.create_instance(data=data) 
+        solver.solve(instance)
+        previous_revenue = instance.revenue()
+        print(previous_revenue)
+        factories_list = instance.Factories
+        depots_list = instance.Depots
+        Markets_list = instance.Markets
+
+        for factory in factories_list:
+            for depot in depots_list:
+                instance.Container_cost_to_be_sent_depot[factory, depot] = 110 / 100 * instance.Container_cost_to_be_sent_depot[factory, depot]()
+
+        for depot in depots_list:
+            for market in Markets_list:
+                instance.Container_cost_to_be_sent_market[depot, market] = 110 / 100 * instance.Container_cost_to_be_sent_market[depot, market]()
+
+        solver.solve(instance)
+        new_revenue = instance.revenue()
+        print(f'For a 10% increase in costs, previous revenue is {previous_revenue} and new revenue is {new_revenue}')
+
+        # Decrease all prices
+        instance = model.create_instance(data=data) 
+        solver.solve(instance)
+        previous_revenue = instance.revenue()
+
+        for factory in factories_list:
+            for depot in depots_list:
+                instance.Container_cost_to_be_sent_depot[factory, depot] = (90 / 100) * instance.Container_cost_to_be_sent_depot[factory, depot]()
+
+        for depot in depots_list:
+            for market in Markets_list:
+                instance.Container_cost_to_be_sent_market[depot, market] = (90 / 100) * instance.Container_cost_to_be_sent_market[depot, market]()
+
+        solver.solve(instance)
+        new_revenue = instance.revenue()
+        print(f'For a 10% reduction in costs, previous revenue is {previous_revenue} and new revenue is {new_revenue}')
+
+    def h_1():
+        # Single price analysis: shipping from factory 1 to depot Isfahan
+        instance = model.create_instance(data=data) 
+        Container_cost_to_be_sent_1_to_Isfahan = []
+        revenue_changing_Container_cost_to_be_sent_1_to_Isfahan = []
+
+        the_least_cost = instance.Container_cost_to_be_sent_depot[1, 'Isfahan']() * (90 / 100)
+        cost_step = instance.Container_cost_to_be_sent_depot[1, 'Isfahan']() / 100
+
+        for cost in range(21):
+            new_cost = cost * cost_step + the_least_cost
+            instance.Container_cost_to_be_sent_depot[1, 'Isfahan'] = new_cost
+            solver.solve(instance)
+            revenue = instance.revenue()
+            Container_cost_to_be_sent_1_to_Isfahan.append(new_cost)
+            revenue_changing_Container_cost_to_be_sent_1_to_Isfahan.append(revenue)
+
+        Container_cost_to_be_sent_1_to_Isfahan_np = np.array(Container_cost_to_be_sent_1_to_Isfahan)
+        revenue_changing_Container_cost_to_be_sent_1_to_isfahan_np = np.array(revenue_changing_Container_cost_to_be_sent_1_to_Isfahan)
+        plt.xlabel("Container transp. cost, Fac1->Isfahan")
+        plt.ylabel("Revenue")
+        plt.plot(Container_cost_to_be_sent_1_to_Isfahan_np, revenue_changing_Container_cost_to_be_sent_1_to_isfahan_np)
+        plt.show()
+
+    def h_2():
+        # Single price analysis: shipping from depot Isfahan to Mashhad
+        instance = model.create_instance(data=data) 
+        Container_cost_to_be_sent_isfahan_to_mashhad = []
+        revenue_changing_Container_cost_to_be_sent_isfahan_to_mashhad = []
+
+        the_least_cost = instance.Container_cost_to_be_sent_market['Isfahan', 'Mashhad']() * (90 / 100)
+        cost_step = instance.Container_cost_to_be_sent_market['Isfahan', 'Mashhad']() / 100
+
+        for cost in range(21):
+            new_cost = cost * cost_step + the_least_cost
+            instance.Container_cost_to_be_sent_market['Isfahan', 'Mashhad'] = new_cost
+            solver.solve(instance)
+            revenue = instance.revenue()
+            Container_cost_to_be_sent_isfahan_to_mashhad.append(new_cost)
+            revenue_changing_Container_cost_to_be_sent_isfahan_to_mashhad.append(revenue)
+
+        Container_cost_to_be_sent_Isfahan_to_mashhad_np = np.array(Container_cost_to_be_sent_isfahan_to_mashhad)
+        revenue_changing_Container_cost_to_be_sent_isfahan_to_mashhad_np = np.array(revenue_changing_Container_cost_to_be_sent_isfahan_to_mashhad)
+        plt.xlabel("Container transp. cost, Isfahan->Mashhad")
+        plt.ylabel("Revenue")
+        plt.plot(Container_cost_to_be_sent_Isfahan_to_mashhad_np, revenue_changing_Container_cost_to_be_sent_isfahan_to_mashhad_np)
+        plt.show()
+
+    
+    if problem_number == '-h':
+        h()
+        h_1()
+        h_2()
+
+    def i():
+        instance.containers_to_Abadan = Var(instance.Depots,within= NonNegativeIntegers)
+        instance.Abadan_Alloys = Var(instance.Depots,instance.Alloys,within= NonNegativeReals)
+        cost_data = {'Tehran':120,
+                     'Isfahan':110}
+        instance.cost_to_Abadan = Param(instance.Depots,initialize=cost_data, within=NonNegativeReals)
+        def Abadan_G_rule(instance,i):
+            return instance.containers_to_Abadan[i]*instance.container_cap >= sum(instance.Abadan_Alloys[i,j] for j in instance.Alloys)
+        
+        instance.Abadan_limit_G = Constraint(instance.Depots,rule=Abadan_G_rule)
+        def Abadan_Q_rule(instance,i):
+            return  sum(instance.Abadan_Alloys[i,j] for j in instance.Alloys)>= 10000
+        
+        instance.Abadan_limit_Q = Constraint(instance.Depots,rule=Abadan_Q_rule)
+        instance.sell_prices_Abadan = Param(instance.Alloys, within=NonNegativeReals,default=0.0,mutable=True)
+        instance.apply_Abadan()
+        for p in range(200,10000,1000):
+            instance.sell_prices_Abadan['A'] = p
+            solver.solve(instance)
+            print(instance.revenue())
+            print(f"Price of A: {p}, Sell A? {(instance.Abadan_Alloys['Isfahan','A']())}")
+        instance.sell_prices_Abadan['A'] = 0
+        for p in range(200,10000,1000):
+            instance.sell_prices_Abadan['B'] = p
+            solver.solve(instance)
+            print(f"Price of B: {p}, Sell B? {sum(instance.Abadan_Alloys[i,'B']() for i in instance.Depots)}")
+
+    if problem_number == '-i':
+        i()
+
 
     if problem_number in ['-a','-b']:
         results = solver.solve(instance)

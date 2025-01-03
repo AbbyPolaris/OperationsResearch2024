@@ -27,8 +27,8 @@ revenue:
 -375 t(A_1_Isfahan)
 -390 t(A_2_Tehran)
 -390 t(A_2_Isfahan)
--530 t(B_1_Tehran)
--530 t(B_1_Isfahan)
+-520 t(B_1_Tehran)
+-520 t(B_1_Isfahan)
 -540 t(B_2_Tehran)
 -540 t(B_2_Isfahan)
 -120 h(1)
@@ -49,7 +49,7 @@ revenue:
 -90 G(Isfahan_Tabriz)
 +18.75 R(A_1)
 +19.5 R(A_2)
-+26.5 R(B_1)
++26.0 R(B_1)
 +27.0 R(B_2)
 
 s.t.
