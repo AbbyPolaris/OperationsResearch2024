@@ -92,7 +92,7 @@ param Market_price:
 
 param price_of_alloy_fac:
                      A      B :=
-       1             375    530
+       1             375    520
        2             390    540
        Main          0      0      ;
 
