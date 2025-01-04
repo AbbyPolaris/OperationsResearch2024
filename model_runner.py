@@ -234,13 +234,13 @@ if __name__ == "__main__":
         for p in range(300,500,5):
             instance.sell_prices_Abadan['A'] = p
             solver.solve(instance)
-            print(f"Price of A: {p}, Sell A? {sum(instance.Abadan_Alloys[i,'A']() for i in instance.Depots)}")
+            print(f"Price of A: {p}, Total sell A? {sum(instance.Abadan_Alloys[i,'A']() for i in instance.Depots)}")
         instance.sell_prices_Abadan['A'] = 0
         print('for B -------------')
         for p in range(300,800,5):
             instance.sell_prices_Abadan['B'] = p
             solver.solve(instance)
-            print(f"Price of B: {p}, Sell B? {sum(instance.Abadan_Alloys[i,'B']() for i in instance.Depots)}")
+            print(f"Price of B: {p}, Total sell B? {sum(instance.Abadan_Alloys[i,'B']() for i in instance.Depots)}")
 
     if problem_number == '-i':
         i()
