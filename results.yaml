@@ -6,12 +6,12 @@
 # ----------------------------------------------------------
 Problem: 
 - Name: unknown
-  Lower bound: 1569990.3030303
-  Upper bound: 1569990.3030303
+  Lower bound: 1107067.57575758
+  Upper bound: 1107067.57575758
   Number of objectives: 1
-  Number of constraints: 97
-  Number of variables: 82
-  Number of nonzeros: 304
+  Number of constraints: 107
+  Number of variables: 88
+  Number of nonzeros: 342
   Sense: maximize
 # ----------------------------------------------------------
 #   Solver Information
@@ -21,10 +21,10 @@ Solver:
   Termination condition: optimal
   Statistics: 
     Branch and bound: 
-      Number of bounded subproblems: 7
-      Number of created subproblems: 7
+      Number of bounded subproblems: 29
+      Number of created subproblems: 29
   Error rc: 0
-  Time: 0.008390426635742188
+  Time: 0.009146451950073242
 # ----------------------------------------------------------
 #   Solution Information
 # ----------------------------------------------------------

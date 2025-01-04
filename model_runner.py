@@ -37,6 +37,9 @@ if __name__ == "__main__":
 
     if problem_number != '-a':
         model.apply_discount() 
+    
+    if problem_number == '-i':
+        model.apply_Abadan()
 
     instance = model.create_instance(data=data) 
     instance.write('model.lp', io_options={'symbolic_solver_labels': True})
@@ -220,35 +223,21 @@ if __name__ == "__main__":
         plt.plot(Container_cost_to_be_sent_Isfahan_to_mashhad_np, revenue_changing_Container_cost_to_be_sent_isfahan_to_mashhad_np)
         plt.show()
 
-    
+
     if problem_number == '-h':
         h()
         h_1()
         h_2()
 
     def i():
-        instance.containers_to_Abadan = Var(instance.Depots,within= NonNegativeIntegers)
-        instance.Abadan_Alloys = Var(instance.Depots,instance.Alloys,within= NonNegativeReals)
-        cost_data = {'Tehran':120,
-                     'Isfahan':110}
-        instance.cost_to_Abadan = Param(instance.Depots,initialize=cost_data, within=NonNegativeReals)
-        def Abadan_G_rule(instance,i):
-            return instance.containers_to_Abadan[i]*instance.container_cap >= sum(instance.Abadan_Alloys[i,j] for j in instance.Alloys)
-        
-        instance.Abadan_limit_G = Constraint(instance.Depots,rule=Abadan_G_rule)
-        def Abadan_Q_rule(instance,i):
-            return  sum(instance.Abadan_Alloys[i,j] for j in instance.Alloys)>= 10000
-        
-        instance.Abadan_limit_Q = Constraint(instance.Depots,rule=Abadan_Q_rule)
-        instance.sell_prices_Abadan = Param(instance.Alloys, within=NonNegativeReals,default=0.0,mutable=True)
-        instance.apply_Abadan()
-        for p in range(200,10000,1000):
+        print('for A -------------')
+        for p in range(300,500,5):
             instance.sell_prices_Abadan['A'] = p
             solver.solve(instance)
-            print(instance.revenue())
-            print(f"Price of A: {p}, Sell A? {(instance.Abadan_Alloys['Isfahan','A']())}")
+            print(f"Price of A: {p}, Sell A? {sum(instance.Abadan_Alloys[i,'A']() for i in instance.Depots)}")
         instance.sell_prices_Abadan['A'] = 0
-        for p in range(200,10000,1000):
+        print('for B -------------')
+        for p in range(300,800,5):
             instance.sell_prices_Abadan['B'] = p
             solver.solve(instance)
             print(f"Price of B: {p}, Sell B? {sum(instance.Abadan_Alloys[i,'B']() for i in instance.Depots)}")

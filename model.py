@@ -12,9 +12,9 @@ model.Markets = Set()
 #parameters
 M = 999999999
 epsilon = 1e-9
-discount_percentage = 0.05
+model.discount_percentage = 0.05
 
-#model parametersdigital firs
+#model parameters
 model.min_buy_fac = Param(model.Factories,within=NonNegativeReals, default=0.0)
 model.max_buy_fac = Param(model.Factories,within=NonNegativeReals, default=infinity)
 model.discount_margin = Param(model.Factories, within=NonNegativeReals, default=infinity)
@@ -248,6 +248,13 @@ def discount_rule_4(model,u):
     return sum(model.R[j,u] for j in model.Alloys) <= model.d[u]*M
 
 
+#added for Abadan
+def Abadan_G_rule(model,i):
+    return model.containers_to_Abadan[i]*model.container_cap >= sum(model.Abadan_Alloys[i,j] for j in model.Alloys)
+
+def transp_from_dep_to_market_rule_abadan_added(model,i,k):
+    return sum(model.t[i,j,k] for j in model.Factories) >= sum(model.g[i,k,l] for l in model.Markets)+model.Abadan_Alloys[k,i]
+
 def revenue_Abadan_added(model):
         return sum(sum(model.Market_price[m,j]*sum(model.g[j,k,m] for k in model.Depots) for j in model.Alloys) for m in model.Markets)-\
            sum(model.Extracted_ore[i]*model.Ore_cost[i] for i in model.Ore)-\
@@ -256,10 +263,9 @@ def revenue_Abadan_added(model):
            sum(model.h[u]*model.contract_cost[u] for u in model.Factories)-\
            sum(sum(model.Container_cost_to_be_sent_depot[i,j]*model.B[i,j] for j in model.Depots) for i in model.Factories)-\
            sum(sum(model.G[i,j]*model.Container_cost_to_be_sent_market[i,j] for j in model.Markets) for i in model.Depots)+\
-           sum(sum(discount_percentage*model.R[j,u]*model.price_of_alloy_fac[u,j] for u in [1,2]) for j in model.Alloys)+\
+           sum(sum(model.discount_percentage*model.R[j,u]*model.price_of_alloy_fac[u,j] for u in [1,2]) for j in model.Alloys)+\
            sum(sum(model.Abadan_Alloys[i,j] for i in model.Depots)*model.sell_prices_Abadan[j] for j in model.Alloys)-\
            sum(model.containers_to_Abadan[i]*model.cost_to_Abadan[i] for i in model.Depots)
-
 
 def revenue_rule_discount_added(model):
     return sum(sum(model.Market_price[m,j]*sum(model.g[j,k,m] for k in model.Depots) for j in model.Alloys) for m in model.Markets)-\
@@ -269,9 +275,19 @@ def revenue_rule_discount_added(model):
            sum(model.h[u]*model.contract_cost[u] for u in model.Factories)-\
            sum(sum(model.Container_cost_to_be_sent_depot[i,j]*model.B[i,j] for j in model.Depots) for i in model.Factories)-\
            sum(sum(model.G[i,j]*model.Container_cost_to_be_sent_market[i,j] for j in model.Markets) for i in model.Depots)+\
-           sum(sum(discount_percentage*model.R[j,u]*model.price_of_alloy_fac[u,j] for u in [1,2]) for j in model.Alloys)
+           sum(sum(model.discount_percentage*model.R[j,u]*model.price_of_alloy_fac[u,j] for u in [1,2]) for j in model.Alloys)
 
 def apply_Abadan_rule():
+    cost_data = {'Tehran':120,
+                 'Isfahan':110}
+  
+    model.add_component('containers_to_Abadan',Var(model.Depots,within= NonNegativeIntegers))
+    model.add_component('Abadan_Alloys',Var(model.Depots,model.Alloys,within= NonNegativeReals))
+    model.add_component('sell_prices_Abadan',Param(model.Alloys, within=NonNegativeReals,default=0,mutable=True))
+    model.add_component('cost_to_Abadan',Param(model.Depots,initialize=cost_data, within=NonNegativeReals))   
+    model.Abadan_G_limit = Constraint(model.Depots,rule=Abadan_G_rule)
+    model.transp_from_dep_to_market_Abadan_added_limit = Constraint(model.Alloys,model.Depots,\
+                                                rule= transp_from_dep_to_market_rule_abadan_added)
     model.del_component('revenue')
     model.add_component('revenue',Objective(rule=revenue_Abadan_added, sense=maximize))
 
