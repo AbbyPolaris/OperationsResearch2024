@@ -23,14 +23,12 @@ revenue:
 -70 Extracted_ore(3)
 -250 U(A)
 -250 U(B)
--375 t(A_1_Tehran)
--375 t(A_1_Isfahan)
--390 t(A_2_Tehran)
--390 t(A_2_Isfahan)
--520 t(B_1_Tehran)
--520 t(B_1_Isfahan)
--540 t(B_2_Tehran)
--540 t(B_2_Isfahan)
+
+-375 A_1
+-390 A_2
+-520 B_1
+-540 B_2
+
 -120 h(1)
 -90 h(2)
 -180 B(1_Tehran)
@@ -65,6 +63,55 @@ c_u_Max_extracted_ore_limit(2)_:
 c_u_Max_extracted_ore_limit(3)_:
 +1 Extracted_ore(3)
 <= 1440.0
+
+c_u_costume_limit_B11_:
++1 t(B_1_Tehran)
++1 t(B_1_Isfahan)
+-1 B_1 
+<= 0
+
+c_u_costume_limit_B12_:
++1 B_1
+-1 t(B_1_Tehran)
+-1 t(B_1_Isfahan) 
+<= 0
+
+c_u_costume_limit_A11_:
++1 t(A_1_Tehran)
++1 t(A_1_Isfahan)
+-1 A_1 
+<= 0
+
+c_u_costume_limit_A12_:
++1 A_1
+-1 t(A_1_Tehran)
+-1 t(A_1_Isfahan) 
+<= 0
+
+c_u_costume_limit_A21_:
++1 t(A_2_Tehran)
++1 t(A_2_Isfahan)
+-1 A_2 
+<= 0
+
+c_u_costume_limit_A22_:
++1 A_2
+-1 t(A_2_Tehran)
+-1 t(A_2_Isfahan) 
+<= 0
+
+c_u_costume_limit_B21_:
++1 t(B_2_Tehran)
++1 t(B_2_Isfahan)
+-1 B_2 
+<= 0
+
+c_u_costume_limit_B22_:
++1 B_2
+-1 t(B_2_Tehran)
+-1 t(B_2_Isfahan) 
+<= 0
+
 
 c_u_Alloy_sum_limit(A)_:
 +1 U(A)
@@ -796,6 +843,10 @@ bounds
    0 <= F(2_B) <= +inf
    0 <= F(3_A) <= +inf
    0 <= F(3_B) <= +inf
+   0 <= A_1 <= +inf
+   0 <= A_2 <= +inf
+   0 <= B_1 <= +inf
+   0 <= B_2 <= +inf
    0 <= l(Tehran_Mashhad) <= 1
    0 <= l(Tehran_Kerman) <= 1
    0 <= l(Tehran_Ahvaz) <= 1
@@ -806,5 +857,4 @@ bounds
    0 <= l(Isfahan_Tabriz) <= 1
    0 <= d(1) <= 1
    0 <= d(2) <= 1
-
 end
